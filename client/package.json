@@ -1,0 +1,43 @@
+{
+  "name": "client",
+  "version": "1.0.0",
+  "description": "frontend for movies api",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "webpack --mode=production --env NODE_ENV=production",
+    "start:client": "webpack-dev-server --mode=development --env.NODE_ENV=local"
+  },
+  "keywords": [
+    "summit"
+  ],
+  "author": "dominicjonas",
+  "license": "ISC",
+  "devDependencies": {
+    "@babel/core": "^7.10.2",
+    "@babel/plugin-transform-runtime": "^7.10.1",
+    "@babel/preset-env": "^7.10.2",
+    "@babel/preset-react": "^7.10.1",
+    "babel-loader": "^8.0.5",
+    "css-loader": "^3.5.3",
+    "dotenv-webpack": "^4.0.0",
+    "file-loader": "^6.2.0",
+    "html-webpack-plugin": "^4.3.0",
+    "sass": "^1.32.6",
+    "sass-loader": "^8.0.2",
+    "style-loader": "^1.2.1",
+    "webpack": "^4.43.0",
+    "webpack-cli": "^3.3.11",
+    "webpack-dev-server": "^3.11.0"
+  },
+  "dependencies": {
+    "axios": "^0.21.1",
+    "chart.js": "^3.6.0",
+    "cors": "^2.8.5",
+    "react": "^16.13.1",
+    "react-chartjs-2": "^3.3.0",
+    "react-dom": "^16.13.1",
+    "react-icons": "^4.3.1",
+    "react-router-dom": "^5.2.0"
+  }
+}
