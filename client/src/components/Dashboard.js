@@ -25,7 +25,7 @@ const Dashboard = () => {
 
   return (
     <div className='container'>
-      <h1>Testing weight call</h1>
+      <h1>Dashboard</h1>
       <form onSubmit={handleWeightSubmit}>
         <label>Add weight: </label>
         <input

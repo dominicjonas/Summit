@@ -24,6 +24,7 @@
   transition: 1850ms;
   overflow-y: scroll;
   scrollbar-color: dark;
+  border-right: 1px solid var(--dark-accent-faint);
 }
 
 .nav-menu.active {
