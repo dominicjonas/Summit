@@ -1,9 +1,10 @@
 import React, { useState } from 'react'
 import { Link } from 'react-router-dom'
 import * as FaIcons from 'react-icons/fa'
-import * as AiIcons from 'react-icons/ai'
 import { SidebarData } from './Data/navbarData'
 import { IconContext } from 'react-icons'
+import { VscClose } from 'react-icons/vsc'
+import logo from '../assets/logo.png'
 
 const Navbar = () => {
   const [sidebar, setSideBar] = useState(false)
@@ -12,17 +13,28 @@ const Navbar = () => {
 
   return (
     <>
-      <IconContext.Provider value={{ color: '#fff' }}>
+      <IconContext.Provider value={{ color: '#eee' }}>
         <div className='navbar'>
           <Link to='#' className='menu-bars'>
             <FaIcons.FaBars onClick={showSidebar} />
           </Link>
+          <img
+            src={logo}
+            alt='logo'
+            className='nav-logo'
+            style={{
+              width: '50px',
+              height: '50px',
+              marginLeft: 'auto',
+              marginRight: '50px'
+            }}
+          />
         </div>
         <nav className={sidebar ? 'nav-menu active' : 'nav-menu'}>
           <ul className='nav-menu-items' onClick={showSidebar}>
             <li className='navbar-toggle'>
               <Link to='#' className='menu-bars'>
-                <AiIcons.AiOutlineClose />
+                <VscClose className='close-icon' />
               </Link>
             </li>
             {SidebarData.map((navitem, index) => {
