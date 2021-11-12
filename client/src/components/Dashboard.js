@@ -5,22 +5,28 @@ import {
 } from '../api/calllerFunctions'
 
 const Dashboard = () => {
-  const [ExerciseWeightInfo, setExerciseWeightInfo] = useState([])
+  const [weight, setWeight] = useState(0)
+  const [exerciseInfo, setExerciseInfo] = useState([])
 
-  //   useEffect(() => {
-  //     try {
-  //       getAllExerciseWeightInfo().then((data) => {
-  //         setUserInfo(data)
-  //       })
-  //     } catch (err) {
-  //       console.log(err)
-  //     }
-  //   }, [])
+  useEffect(() => {
+    try {
+      getAllExerciseWeightInfo().then((data) => {
+        setExerciseInfo(data)
+      })
+    } catch (err) {
+      console.log(err)
+    }
+  }, [])
+
+  console.log(exerciseInfo)
 
   const handleWeightSubmit = (e) => {
     e.preventDefault()
-    // addSessionWeight(sessionWeight)
-    console.log('session submit fired. Weight added: ', ExerciseWeightInfo)
+    addSessionWeight({
+      exercise_name: 'bench press',
+      exercise_weight: weight
+    })
+    console.log('session submit fired. Weight added: ', weight)
   }
 
   return (
@@ -31,7 +37,7 @@ const Dashboard = () => {
         <input
           type='number'
           placeholder='Enter number...'
-          onChange={(e) => setExerciseWeightInfo(e.target.value)}
+          onChange={(e) => setWeight(e.target.value)}
         />
         <button>Add Weight</button>
       </form>
