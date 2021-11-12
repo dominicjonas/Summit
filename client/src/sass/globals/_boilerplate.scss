@@ -1,0 +1,29 @@
+html {
+  // this helps with accessibility. user is able to adjust fontsize in their browser
+  font-size: 100%;
+
+  box-sizing: border-box;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: inherit;
+}
+
+*::-webkit-scrollbar {
+  width: 12px;
+}
+
+*::-webkit-scrollbar-track {
+  background: var(--dark-bg-primary);
+}
+
+*::-webkit-scrollbar-thumb {
+  background-color: var(--dark-card-hover);
+}
+
+body {
+  margin: 0;
+  padding: 0;
+}

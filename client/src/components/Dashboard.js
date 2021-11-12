@@ -4,7 +4,7 @@ import {
   addSessionWeight
 } from '../api/calllerFunctions'
 
-const TestingCall = () => {
+const Dashboard = () => {
   const [ExerciseWeightInfo, setExerciseWeightInfo] = useState([])
 
   //   useEffect(() => {
@@ -24,8 +24,8 @@ const TestingCall = () => {
   }
 
   return (
-    <div>
-      <h1>Testing weight call</h1>
+    <div className='container'>
+      <h1>Dashboard</h1>
       <form onSubmit={handleWeightSubmit}>
         <label>Add weight: </label>
         <input
@@ -41,4 +41,4 @@ const TestingCall = () => {
   )
 }
 
-export default TestingCall
+export default Dashboard
