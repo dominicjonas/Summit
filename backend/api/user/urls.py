@@ -19,5 +19,5 @@ from .views import index, ExerciseListView
 
 urlpatterns = [
     path("", index),
-    path("exercise/", ExerciseListView.as_view()),
+    path("api/", ExerciseListView.as_view()),
 ]
