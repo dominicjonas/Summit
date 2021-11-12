@@ -3,7 +3,7 @@ import axios from 'axios'
 export const getAllExerciseWeightInfo = async () => {
   const options = {
     method: 'GET',
-    url: `http://localhost:8000/user/api`
+    url: `http://localhost:8000/exercise/api/`
   }
 
   const { data } = await axios.request(options)
@@ -11,6 +11,6 @@ export const getAllExerciseWeightInfo = async () => {
   return data
 }
 
-export const addSessionWeight = (sessionWeight) => {
-  return axios.post(`http://localhost:8000/user/userlog`, sessionWeight)
+export const addSessionWeight = (exercise_weight) => {
+  return axios.post(`http://localhost:8000/exercise/api/`, exercise_weight)
 }

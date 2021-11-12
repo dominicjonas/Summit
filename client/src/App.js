@@ -12,6 +12,8 @@ import Legs from './components/Legs'
 import Core from './components/Core'
 import Cardio from './components/Cardio'
 
+import Benchpress from './components/Benchpress'
+
 import Login from './components/Login'
 import Register from './components/Register'
 
@@ -23,6 +25,7 @@ const App = () => {
         <Switch>
           <Route path='/' exact component={Dashboard} />
           <Route path='/chest' component={Chest} />
+          <Route path='/benchpress' component={Benchpress} />
           <Route path='/back' component={Back} />
           <Route path='/shoulders' component={Shoulders} />
           <Route path='/arms' component={Arms} />

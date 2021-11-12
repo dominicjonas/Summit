@@ -18,6 +18,12 @@ export const SidebarData = [
     className: 'nav-text'
   },
   {
+    title: 'Bench Press',
+    path: '/benchpress',
+    icon: <IoIosArrowForward />,
+    className: 'nav-text'
+  },
+  {
     title: 'Back',
     path: '/back',
     icon: <IoIosArrowForward />,
