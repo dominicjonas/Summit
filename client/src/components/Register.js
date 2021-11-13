@@ -12,8 +12,8 @@ const Register = () => {
   const [registerData, setRegisterData] = useState({
     formData: {
       username: '',
-      password: '',
-      confirmPassword: ''
+      email: '',
+      password: ''
     }
   })
 
@@ -57,19 +57,19 @@ const Register = () => {
           onChange={handleChange}
         />
         <input
-          type='password'
-          placeholder='password..'
-          name='password'
-          value={registerData.formData.password}
+          type='email'
+          placeholder='email..'
+          name='email'
+          value={registerData.formData.email}
           required
           autoComplete='off'
           onChange={handleChange}
         />
         <input
           type='password'
-          placeholder='confirm password..'
-          name='confirmPassword'
-          value={registerData.formData.confirmPassword}
+          placeholder='password..'
+          name='password'
+          value={registerData.formData.password}
           required
           autoComplete='off'
           onChange={handleChange}
