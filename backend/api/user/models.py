@@ -5,9 +5,10 @@ from django import forms
 
 
 class User(models.Model):
-    username = models.CharField(max_length=50, unique=True)
+    username = models.CharField(max_length=50)
+    # username = models.CharField(max_length=50, unique=True)
     email = models.EmailField(verbose_name='email',
-                              max_length=50, unique=True)
+                              max_length=50)
     # need help with making a better password field
     password = models.CharField(max_length=50, default='password')
     # password = forms.CharField(widget=forms.PasswordInput)
