@@ -1,10 +1,12 @@
 import React, { useState } from 'react'
 import { Link, useHistory } from 'react-router-dom'
-import { loginUser } from '../api/callerFunctions'
+// import { loginUser } from '../api/callerFunctions'
 
 import logo from '../assets/logo.png'
 import { IoIosArrowDown } from 'react-icons/io'
 import { AiOutlineHome } from 'react-icons/ai'
+
+import axios from 'axios'
 
 const Login = () => {
   const history = useHistory()
@@ -15,19 +17,6 @@ const Login = () => {
     }
   })
 
-  const handleSubmit = async (e) => {
-    e.preventDefault()
-
-    try {
-      const res = await loginUser(loginData.formData)
-      if (res.status === 202) {
-        history.push('/')
-      }
-    } catch (err) {
-      console.error('error login in user', err)
-    }
-  }
-
   const handleChange = (e) => {
     const formData = {
       ...loginData.formData,
@@ -37,6 +26,28 @@ const Login = () => {
     console.log(loginData)
   }
 
+  const setTokenToLocalStorage = (token) => {
+    window.localStorage.setItem('token', token)
+    console.log('TOKEN', token)
+  }
+
+  const handleSubmit = async (e) => {
+    e.preventDefault()
+    try {
+      const { data } = await axios.post(
+        `http://localhost:8000/exercise/accounts/login/`,
+        loginData.formData
+      )
+      console.log('data is: ', data)
+      setTokenToLocalStorage(data.token)
+      if (res.status === 202) {
+        history.push('/')
+      }
+    } catch (err) {
+      console.error('error login in user', err)
+    }
+  }
+
   return (
     <div className='login-container'>
       <div className='logo-container'>
@@ -44,6 +55,7 @@ const Login = () => {
       </div>
       <form onSubmit={handleSubmit}>
         <input
+          type='text'
           name='username'
           value={loginData.formData.username}
           required
@@ -58,7 +70,7 @@ const Login = () => {
           required
           onChange={handleChange}
           placeholder='Enter password..'
-          autoComplete='off'
+          autoComplete='new-password'
         />
         <p>
           not a member?{' '}

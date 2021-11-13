@@ -1,11 +1,13 @@
 import React, { useState } from 'react'
 import { Link, useHistory } from 'react-router-dom'
 
-import { registerUser } from '../api/callerFunctions'
+// import { registerUser } from '../api/callerFunctions'
 
 import logo from '../assets/logo.png'
 import { IoIosArrowDown } from 'react-icons/io'
 import { AiOutlineHome } from 'react-icons/ai'
+
+import axios from 'axios'
 
 const Register = () => {
   const history = useHistory()
@@ -17,28 +19,30 @@ const Register = () => {
     }
   })
 
-  const handleSubmit = async (e) => {
-    e.preventDefault()
-    try {
-      const res = await registerUser(registerData.formData)
-      if (res.status === 201) {
-        history.push('/login')
-        const currentId = res.data.id
-        console.log('the current user id: ', currentId)
-      }
-    } catch (err) {
-      console.error('Error registering user', err)
-    }
-  }
-
   const handleChange = (e) => {
     const formData = {
       ...registerData.formData,
       [e.target.name]: e.target.value
     }
-
     setRegisterData({ formData })
-    console.log(formData)
+  }
+
+  const handleSubmit = async (e) => {
+    e.preventDefault()
+    try {
+      // const res = await registerUser(registerData.formData)
+      await axios.post(
+        'http://localhost:8000/exercise/user/',
+        registerData.formData
+      )
+      history.push('/login')
+      // if (res.status === 201) {
+      //   const currentId = res.data.id
+      //   console.log('the current user id: ', currentId)
+      // }
+    } catch (err) {
+      console.error('Error registering user', err)
+    }
   }
 
   return (
@@ -48,30 +52,28 @@ const Register = () => {
       </div>
       <form onSubmit={handleSubmit}>
         <input
-          type='text'
           placeholder='username..'
+          type='text'
           name='username'
           value={registerData.formData.username}
           required
-          autoComplete='off'
           onChange={handleChange}
         />
         <input
-          type='email'
           placeholder='email..'
+          type='email'
           name='email'
           value={registerData.formData.email}
           required
-          autoComplete='off'
           onChange={handleChange}
         />
         <input
-          type='password'
           placeholder='password..'
+          type='password'
           name='password'
           value={registerData.formData.password}
           required
-          autoComplete='off'
+          autoComplete='new-password'
           onChange={handleChange}
         />
         <button>REGISTER</button>
