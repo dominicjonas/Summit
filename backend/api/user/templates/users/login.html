@@ -1,0 +1,7 @@
+<!--users/templates/users/login.html-->
+
+{% extends 'index.html' %}
+
+{% block content %}
+Hello, {{ user.username|default:'Guest' }}!
+{% endblock %}

@@ -15,9 +15,11 @@ Including another URLconf
 """
 
 from django.urls import path
-from .views import index, ExerciseListView
+from .views import index, ExerciseListView, UserListView, login
 
 urlpatterns = [
     path("", index),
-    path("api/", ExerciseListView.as_view()),
+    path("user/", UserListView.as_view()),
+    path("login/", login, name="login"),
+    path("exercise-list/", ExerciseListView.as_view()),
 ]
