@@ -18,7 +18,7 @@ export const addSessionWeight = (exercise_weight) => {
 // AUTH METHODS
 
 export const registerUser = (formData) => {
-  return axios.post(`http://localhost:8000/exercise/register/`, formData)
+  return axios.post(`http://localhost:8000/exercise/user/`, formData)
 }
 
 export const loginUser = (formData) => {
