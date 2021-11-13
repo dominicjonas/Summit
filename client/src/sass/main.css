@@ -106,6 +106,11 @@ span {
   color: white;
 }
 
+img {
+  height: 50px;
+  width: 50px;
+}
+
 .testing-container {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -174,7 +179,11 @@ span {
   border: none;
   border-radius: 0.2em;
   width: 100%;
-  color: var(--logo-teal);
+  color: var(--dark-bg-primary);
+}
+
+.login-container form input:focus {
+  font-size: 1.1em;
 }
 
 .login-container form p {
@@ -345,6 +354,9 @@ body {
   --toggle: hsl(230, 22%, 74%);
   --dark-accent: hsl(175, 93%, 53%);
   --dark-accent-faint: hsla(175, 93%, 53%, 0.253);
+  --toggle-bg-start: hsl(210, 78%, 56%);
+  --toggle-bg-end: hsl(146, 68%, 55%);
+  --toggle: hsl(230, 22%, 74%);
   --dark-bg-primary: hsl(230, 17%, 14%);
   --dark-bg-secondary: hsl(229, 17%, 19%);
   --dark-top-bg: hsl(232, 19%, 15%);
