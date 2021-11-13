@@ -14,3 +14,16 @@ export const getAllExerciseWeightInfo = async () => {
 export const addSessionWeight = (exercise_weight) => {
   return axios.post(`http://localhost:8000/exercise/api/`, exercise_weight)
 }
+
+// AUTH METHODS
+
+export const registerUser = (formData) => {
+  return axios.post(`http://localhost:8000/exercise/register/`, formData)
+}
+
+export const loginUser = (formData) => {
+  return axios.post(
+    `http://localhost:8000/exercise/accounts/login/`,
+    formData
+  )
+}

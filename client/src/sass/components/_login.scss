@@ -33,7 +33,10 @@
       border: none;
       border-radius: 0.2em;
       width: 100%;
-      color: var(--logo-teal);
+      color: var(--dark-bg-primary);
+      &:focus {
+        font-size: 1.1em;
+      }
     }
     p {
       text-align: center;

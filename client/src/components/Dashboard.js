@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react'
 import {
   getAllExerciseWeightInfo,
   addSessionWeight
-} from '../api/calllerFunctions'
+} from '../api/callerFunctions'
 
 const Dashboard = () => {
   const [weight, setWeight] = useState(0)
