@@ -17,13 +17,13 @@ export const addSessionWeight = (exercise_weight) => {
 
 // AUTH METHODS
 
-export const registerUser = (formData) => {
-  return axios.post(`http://localhost:8000/exercise/user/`, formData)
-}
+// export const registerUser = (formData) => {
+//   return axios.post(`http://localhost:8000/exercise/user/`, formData)
+// }
 
-export const loginUser = (formData) => {
-  return axios.post(
-    `http://localhost:8000/exercise/accounts/login/`,
-    formData
-  )
-}
+// export const loginUser = (formData) => {
+//   return axios.post(
+//     `http://localhost:8000/exercise/accounts/login/`,
+//     formData
+//   )
+// }
