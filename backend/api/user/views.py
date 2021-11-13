@@ -1,8 +1,12 @@
+from django.shortcuts import redirect, render
+from django.urls import reverse
 from django.shortcuts import render
 from .models import Exercise, User
 from .serializers import ExerciseSerializer, UserSerializer
 from rest_framework import response, request
 from django.shortcuts import render
+from django.contrib.auth import login
+from user.templates.users.forms import CustomUserCreationForm
 # import requests
 
 from rest_framework import views, response, status
@@ -16,8 +20,27 @@ def index(request):
     return render(request, 'index.html', context)
 
 
-def login(request):
-    return render(request, "users/login.html")
+def dashboard(request):
+    return render(request, "users/dashboard.html")
+
+
+def dashboard(request):
+    return render(request, "users/dashboard.html")
+
+
+def register(request):
+    if request.method == "GET":
+        return render(
+            request, "users/register.html",
+            {"form": CustomUserCreationForm}
+        )
+
+    elif request.method == "POST":
+        form = CustomUserCreationForm(request.POST)
+        if form.is_valid():
+            user = form.save()
+            login(request, user)
+            return redirect(reverse("dashboard"))
 
 
 class ExerciseListView (views.APIView):
@@ -61,21 +84,3 @@ class UserListView(views.APIView):
         return response.Response(
             user_to_add.errors, status=status.HTTP_400_BAD_REQUEST
         )
-
-    # def createUser(request):
-    #     userName = request.REQUEST.get('username', None)
-    #     userPass = request.REQUEST.get('password', None)
-    #     userMail = request.REQUEST.get('email', None)
-
-    #     # TODO: check if already existed
-    #     if userName and userPass and userMail:
-    #         user_created = User.objects.get_or_create(userName, userMail)
-    #     if user_created:
-    #         # user was created
-    #         # set the password here
-    #     else:
-    #         # user was retrieved
-    #     else:
-    #         # request was empty
-
-    #     return render(request, 'home.html')
