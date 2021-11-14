@@ -315,7 +315,7 @@ a:active {
 
 .container {
   padding: 0 25px;
-  max-width: 1200px;
+  min-width: 100vw;
   height: 100vh;
   margin: 0 auto;
   padding: 1rem;
@@ -331,12 +331,6 @@ a:active {
           flex-direction: column;
   background: var(--dark-bg-secondary);
   color: var(--dark-text2);
-}
-
-@media (min-width: 71.875em) {
-  .container {
-    max-width: 2000px;
-  }
 }
 
 :root {
