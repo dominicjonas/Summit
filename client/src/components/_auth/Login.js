@@ -1,47 +1,50 @@
 import React, { useState } from 'react'
 import { Link, useHistory } from 'react-router-dom'
+// import { loginUser } from '../api/callerFunctions'
 
-// import { registerUser } from '../api/callerFunctions'
-
-import logo from '../assets/logo.png'
+import logo from '../../assets/logo.png'
 import { IoIosArrowDown } from 'react-icons/io'
 import { AiOutlineHome } from 'react-icons/ai'
 
 import axios from 'axios'
 
-const Register = () => {
+const Login = () => {
   const history = useHistory()
-  const [registerData, setRegisterData] = useState({
+  const [loginData, setLoginData] = useState({
     formData: {
       username: '',
-      email: '',
       password: ''
     }
   })
 
   const handleChange = (e) => {
     const formData = {
-      ...registerData.formData,
+      ...loginData.formData,
       [e.target.name]: e.target.value
     }
-    setRegisterData({ formData })
+    setLoginData({ formData })
+    console.log(loginData)
+  }
+
+  const setTokenToLocalStorage = (token) => {
+    window.localStorage.setItem('token', token)
+    console.log('TOKEN', token)
   }
 
   const handleSubmit = async (e) => {
     e.preventDefault()
     try {
-      // const res = await registerUser(registerData.formData)
-      await axios.post(
-        'http://localhost:8000/exercise/user/',
-        registerData.formData
+      const { data } = await axios.post(
+        `http://localhost:8000/exercise/accounts/login/`,
+        loginData.formData
       )
-      history.push('/login')
-      // if (res.status === 201) {
-      //   const currentId = res.data.id
-      //   console.log('the current user id: ', currentId)
-      // }
+      console.log('data is: ', data)
+      setTokenToLocalStorage(data.token)
+      if (res.status === 202) {
+        history.push('/')
+      }
     } catch (err) {
-      console.error('Error registering user', err)
+      console.error('error login in user', err)
     }
   }
 
@@ -52,31 +55,30 @@ const Register = () => {
       </div>
       <form onSubmit={handleSubmit}>
         <input
-          placeholder='username..'
           type='text'
           name='username'
-          value={registerData.formData.username}
+          value={loginData.formData.username}
           required
           onChange={handleChange}
+          placeholder='Enter username..'
+          autoComplete='off'
         />
         <input
-          placeholder='email..'
-          type='email'
-          name='email'
-          value={registerData.formData.email}
-          required
-          onChange={handleChange}
-        />
-        <input
-          placeholder='password..'
-          type='password'
           name='password'
-          value={registerData.formData.password}
+          type='password'
+          value={loginData.formData.password}
           required
-          autoComplete='new-password'
           onChange={handleChange}
+          placeholder='Enter password..'
+          autoComplete='new-password'
         />
-        <button>REGISTER</button>
+        <p>
+          not a member?{' '}
+          <Link to='/register' className='register-link'>
+            register here
+          </Link>
+        </p>
+        <button>LOGIN</button>
       </form>
       <div className='arrows'>
         <IoIosArrowDown className='arrow-1' />
@@ -89,4 +91,4 @@ const Register = () => {
   )
 }
 
-export default Register
+export default Login

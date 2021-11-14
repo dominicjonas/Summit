@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import { Link } from 'react-router-dom'
 import * as FaIcons from 'react-icons/fa'
-import { SidebarData } from './Data/navbarData'
+import { SidebarData } from './_data/navbarData'
 import { IconContext } from 'react-icons'
 import { VscClose } from 'react-icons/vsc'
 import logo from '../assets/logo.png'

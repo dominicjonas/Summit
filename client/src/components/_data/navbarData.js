@@ -13,37 +13,31 @@ export const SidebarData = [
   },
   {
     title: 'Chest',
-    path: '/chest',
-    icon: <IoIosArrowForward />,
-    className: 'nav-text'
-  },
-  {
-    title: 'Bench Press',
     path: '/benchpress',
     icon: <IoIosArrowForward />,
     className: 'nav-text'
   },
   {
     title: 'Back',
-    path: '/back',
+    path: '/latpulldown',
     icon: <IoIosArrowForward />,
     className: 'nav-text'
   },
   {
     title: 'Shoulders',
-    path: '/shoulders',
+    path: '/lateralraise',
     icon: <IoIosArrowForward />,
     className: 'nav-text'
   },
   {
     title: 'Arms',
-    path: '/arms',
+    path: '/bicepcurl',
     icon: <IoIosArrowForward />,
     className: 'nav-text'
   },
   {
     title: 'Legs',
-    path: '/legs',
+    path: '/squat',
     icon: <IoIosArrowForward />,
     className: 'nav-text'
   },
