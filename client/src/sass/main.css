@@ -1,5 +1,5 @@
 .navbar {
-  background-color: var(--dark-bg-primary);
+  background-color: #14182e;
   height: 80px;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -19,7 +19,7 @@
 }
 
 .nav-menu {
-  background-color: var(--dark-bg-primary);
+  background-color: #14182e;
   width: 250px;
   height: 100vh;
   display: -webkit-box;
@@ -76,7 +76,7 @@
 }
 
 .nav-text a:hover {
-  background-color: var(--dark-card-hover);
+  background-color: #14182e;
 }
 
 .nav-menu-items {
@@ -84,7 +84,7 @@
 }
 
 .navbar-toggle {
-  background-color: var(--dark-bg-primary);
+  background-color: #14182e;
   width: 100%;
   height: 80px;
   display: -webkit-box;
@@ -137,16 +137,22 @@ img {
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
-  gap: 2rem;
+  gap: 3rem;
 }
 
 .chart {
   width: 400px;
-  background: transparent;
-  border-radius: 1em;
+  background: rgba(14, 14, 66, 0.329);
+  border-radius: 0.5em;
   padding: 2rem;
   -webkit-box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 6px -1px, rgba(0, 0, 0, 0.06) 0px 2px 4px -1px;
           box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 6px -1px, rgba(0, 0, 0, 0.06) 0px 2px 4px -1px;
+  -webkit-transition: 0.2s ease background;
+  transition: 0.2s ease background;
+}
+
+.chart:hover {
+  background: rgba(255, 255, 255, 0.0225);
 }
 
 .login-container {
@@ -165,7 +171,7 @@ img {
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
           flex-direction: column;
-  background: var(--dark-bg-secondary);
+  background: #060627;
   color: var(--dark-text2);
 }
 
@@ -298,7 +304,7 @@ html {
 }
 
 *::-webkit-scrollbar-track {
-  background: var(--dark-bg-primary);
+  background: #14182e;
 }
 
 *::-webkit-scrollbar-thumb {
@@ -337,29 +343,8 @@ a:active {
   text-decoration: none;
 }
 
-.container {
-  padding: 0 25px;
-  min-width: 100vw;
-  height: 100vh;
-  margin: 0 auto;
-  padding: 1rem;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
-  background: var(--dark-bg-secondary);
-  color: var(--dark-text2);
-  outline: 1px solid blue;
-}
-
 .exercise-group-container {
-  background: var(--dark-bg-secondary);
+  background: #030d20;
   min-height: 100vh;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -410,7 +395,7 @@ a:active {
   margin-top: 2rem;
   color: var(--dark-text2);
   font-weight: 300;
-  font-size: 3rem;
+  font-size: 2rem;
 }
 
 .exercise-group-container .weight-input-container {
@@ -460,8 +445,8 @@ body {
   --toggle-bg-start: hsl(210, 78%, 56%);
   --toggle-bg-end: hsl(146, 68%, 55%);
   --toggle: hsl(230, 22%, 74%);
-  --dark-bg-primary: hsl(230, 17%, 14%);
-  --dark-bg-secondary: hsl(229, 17%, 19%);
+  --dark-bg-primary: hsl(230, 64%, 8%);
+  --dark-bg-secondary: hsla(229, 57%, 11%, 0.925);
   --dark-top-bg: hsl(232, 19%, 15%);
   --dark-card: hsl(228, 28%, 20%);
   --dark-text1: hsl(228, 34%, 66%);
