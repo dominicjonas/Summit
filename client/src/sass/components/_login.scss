@@ -7,7 +7,7 @@
   display: flex;
   align-items: center;
   flex-direction: column;
-  background: rgb(6, 6, 39);
+  background: var(--dark-bg-primary);
   color: var(--dark-text2);
 
   .logo-container {
