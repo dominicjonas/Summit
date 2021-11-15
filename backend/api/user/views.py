@@ -1,8 +1,8 @@
 from django.shortcuts import redirect, render
 from django.urls import reverse
 from django.shortcuts import render
-from .models import Exercise, User
-from .serializers import ExerciseSerializer, UserSerializer
+from .models import Exercise, ExerciseGroup, User
+from .serializers import ExerciseGroupSerializer, ExerciseSerializer, UserSerializer
 from rest_framework import response, request
 from django.shortcuts import render
 from django.contrib.auth import login
@@ -75,21 +75,6 @@ def dashboard(request):
     return render(request, "users/dashboard.html")
 
 
-# def register(request):
-#     if request.method == "GET":
-#         return render(
-#             request, "users/register.html",
-#             {"form": CustomUserCreationForm}
-#         )
-
-#     elif request.method == "POST":
-#         form = CustomUserCreationForm(request.POST)
-#         if form.is_valid():
-#             user = form.save()
-#             login(request, user)
-#             return redirect(reverse("dashboard"))
-
-
 class ExerciseListView (views.APIView):
     # queryset = Exercise.objects.all()
     # serializer_class = ExerciseSerializer
@@ -131,3 +116,23 @@ class UserListView(views.APIView):
         return response.Response(
             user_to_add.errors, status=status.HTTP_400_BAD_REQUEST
         )
+
+
+class ExerciseGroupListView(views.APIView):
+    def get(self, request):
+        exercise_group = ExerciseGroup.objects.all()
+        serialized_exercise_group = ExerciseGroupSerializer(
+            exercise_group, many=True, context={'request', request}
+        )
+        return response.Response(serialized_exercise_group.data, status=status.HTTP_200_OK)
+
+    def post(self, request):
+        print(request.data)
+        exercise_group_to_add = ExerciseGroupSerializer(data=request.data)
+        if exercise_group_to_add.is_valid():
+            exercise_group_to_add.save()
+            return response.Response(exercise_group_to_add.data, status=status.HTTP_201_CREATED)
+
+        return response.Response('this is a bad request',
+                                 exercise_group_to_add.errors, status=status.HTTP_400_BAD_REQUEST
+                                 )

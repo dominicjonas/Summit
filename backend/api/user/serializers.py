@@ -1,5 +1,5 @@
 from rest_framework import serializers
-from .models import Exercise, User
+from .models import Exercise, ExerciseGroup, User
 from django.contrib.auth import get_user_model, password_validation
 from django.contrib.auth.hashers import make_password
 from django.core.exceptions import ValidationError
@@ -7,9 +7,8 @@ User = get_user_model()
 
 
 # class UserSerializer(serializers.ModelSerializer): - might need to use this?
-class UserSerializer(serializers.HyperlinkedModelSerializer):
-    # programmes = serializers.ReadOnlyField(
-    #     source="build_user_programme")
+class UserSerializer(serializers.ModelSerializer):
+    # class UserSerializer(serializers.HyperlinkedModelSerializer):
 
     password = serializers.CharField(write_only=True)
     password_confirmation = serializers.CharField(write_only=True)
@@ -36,15 +35,39 @@ class UserSerializer(serializers.HyperlinkedModelSerializer):
 
         return data
 
+    exercise_groups = serializers.ReadOnlyField(
+        source="get_groups")
+    # exercise_grouping = ExerciseGroupSerializer(
+    #     source='get_exercise_group', read_only=True)
+
     class Meta:
         model = User
 
         fields = ('id', 'username', 'email',
-                  'password', 'password_confirmation')
+                  'password', 'password_confirmation', 'exercise_groups')  # exercise_grouping
+        #   'password', 'password_confirmation', 'exercise_group')  # exercise_grouping
+
+        depth = 2
         # fields = ('id', 'username', 'password', 'programmes')
 
 
+class ExerciseGroupSerializer(serializers.HyperlinkedModelSerializer):
+    class Meta:
+        model = ExerciseGroup
+    # fields = ('exercise_group')
+        fields = ('id', 'name', 'user')
+    # fields = ('id', 'exercise_group', 'username', 'exercise_name')
+
+    depth = 2
+
+
 class ExerciseSerializer(serializers.HyperlinkedModelSerializer):
+    # exercise_group = ExerciseGroupSerializer(
+    #     source='get_exercise_group', read_only=True)
+
     class Meta:
         model = Exercise
-        fields = ('id', 'exercise_name', 'exercise_weight')
+        fields = ('id', 'exercise_name', 'exercise_weight',
+                  'user', 'exercise_group', 'date_completed')
+
+        depth = 2
