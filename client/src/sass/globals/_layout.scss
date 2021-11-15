@@ -11,9 +11,71 @@
   flex-direction: column;
   background: var(--dark-bg-secondary);
   color: var(--dark-text2);
+  outline: 1px solid blue;
 
   // takes away padding on larger screens
   // @include breakpoint(large) {
   //   max-width: 2000px;
   // }
+}
+
+.exercise-group-container {
+  background: var(--dark-bg-secondary);
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-bottom: 5rem;
+  h1 {
+    color: var(--logo-teal);
+    margin: 2rem 0;
+    font-weight: 600;
+  }
+  .exercise-links {
+    display: flex;
+    gap: 1rem;
+    button {
+      font-size: 1.3rem;
+      background: transparent;
+      color: var(--dark-text2);
+      border: none;
+      box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
+      padding: 0.2em 0.5em;
+      cursor: pointer;
+      transition: 300ms all;
+      &:hover {
+        border: none;
+        background: var(--dark-card-hover);
+        color: var(--dark-top-bg);
+      }
+    }
+  }
+  h2 {
+    margin-top: 2rem;
+    color: var(--dark-text2);
+    font-weight: 300;
+    font-size: 3rem;
+  }
+  .weight-input-container {
+    margin: 2rem 0;
+    input {
+      font-size: 1.5rem;
+      border-radius: 0.1em;
+      box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
+    }
+    button {
+      font-size: 1.5rem;
+      background: transparent;
+      color: var(--dark-text2);
+      border: none;
+      box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
+      padding: 0.2em 0.5em;
+      cursor: pointer;
+      transition: 300ms all;
+      &:hover {
+        border: none;
+        background: var(--dark-card-hover);
+      }
+    }
+  }
 }
