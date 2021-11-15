@@ -20,7 +20,7 @@
 // }
 
 .exercise-group-container {
-  background: rgb(3, 13, 32);
+  background: var(--dark-bg-primary);
   min-height: 100vh;
   display: flex;
   flex-direction: column;
@@ -29,7 +29,7 @@
   h1 {
     color: var(--logo-teal);
     margin: 2rem 0;
-    font-weight: 600;
+    font-weight: 700;
   }
   .exercise-links {
     display: flex;
