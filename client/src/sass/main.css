@@ -128,8 +128,33 @@ img {
   height: 90vh;
 }
 
+.graph-container {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  gap: 2rem;
+}
+
+.chart {
+  width: 400px;
+  background: transparent;
+  border-radius: 1em;
+  padding: 2rem;
+  -webkit-box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 6px -1px, rgba(0, 0, 0, 0.06) 0px 2px 4px -1px;
+          box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 6px -1px, rgba(0, 0, 0, 0.06) 0px 2px 4px -1px;
+}
+
 .login-container {
-  position: absolute;
+  padding: 0 25px;
+  min-width: 100vw;
+  height: 100vh;
+  margin: 0 auto;
+  padding: 1rem;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -140,12 +165,12 @@ img {
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
           flex-direction: column;
-  text-align: center;
-  height: 100vh;
-  width: 100vw;
-  background: var(--dark-bg-primary);
-  color: var(--dark-accent);
-  z-index: 10;
+  background: var(--dark-bg-secondary);
+  color: var(--dark-text2);
+}
+
+.login-container .logo-container {
+  margin-top: 2rem;
 }
 
 .login-container .logo-container img {
@@ -155,8 +180,6 @@ img {
 
 .login-container form {
   background: transparent;
-  -webkit-box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
-          box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
   border-radius: 0.3em;
   max-width: clamp(300px, 10rem, 10rem);
   display: -webkit-box;
@@ -242,6 +265,7 @@ img {
 }
 
 .home-link {
+  display: none;
   position: absolute;
   top: 0;
   left: 0;
@@ -331,6 +355,91 @@ a:active {
           flex-direction: column;
   background: var(--dark-bg-secondary);
   color: var(--dark-text2);
+  outline: 1px solid blue;
+}
+
+.exercise-group-container {
+  background: var(--dark-bg-secondary);
+  min-height: 100vh;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  padding-bottom: 5rem;
+}
+
+.exercise-group-container h1 {
+  color: var(--logo-teal);
+  margin: 2rem 0;
+  font-weight: 600;
+}
+
+.exercise-group-container .exercise-links {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  gap: 1rem;
+}
+
+.exercise-group-container .exercise-links button {
+  font-size: 1.3rem;
+  background: transparent;
+  color: var(--dark-text2);
+  border: none;
+  -webkit-box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
+          box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
+  padding: 0.2em 0.5em;
+  cursor: pointer;
+  -webkit-transition: 300ms all;
+  transition: 300ms all;
+}
+
+.exercise-group-container .exercise-links button:hover {
+  border: none;
+  background: var(--dark-card-hover);
+  color: var(--dark-top-bg);
+}
+
+.exercise-group-container h2 {
+  margin-top: 2rem;
+  color: var(--dark-text2);
+  font-weight: 300;
+  font-size: 3rem;
+}
+
+.exercise-group-container .weight-input-container {
+  margin: 2rem 0;
+}
+
+.exercise-group-container .weight-input-container input {
+  font-size: 1.5rem;
+  border-radius: 0.1em;
+  -webkit-box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
+          box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
+}
+
+.exercise-group-container .weight-input-container button {
+  font-size: 1.5rem;
+  background: transparent;
+  color: var(--dark-text2);
+  border: none;
+  -webkit-box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
+          box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
+  padding: 0.2em 0.5em;
+  cursor: pointer;
+  -webkit-transition: 300ms all;
+  transition: 300ms all;
+}
+
+.exercise-group-container .weight-input-container button:hover {
+  border: none;
+  background: var(--dark-card-hover);
 }
 
 :root {

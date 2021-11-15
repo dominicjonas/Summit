@@ -4,7 +4,7 @@ import * as FaIcons from 'react-icons/fa'
 import { SidebarData } from './_data/navbarData'
 import { IconContext } from 'react-icons'
 import { VscClose } from 'react-icons/vsc'
-import logo from '../assets/logo.png'
+import logo from '../assets/logowhite.png'
 
 const Navbar = () => {
   const [sidebar, setSideBar] = useState(false)
