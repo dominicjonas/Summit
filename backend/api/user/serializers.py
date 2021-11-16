@@ -42,7 +42,7 @@ class UserSerializer(serializers.ModelSerializer):
     class Meta:
         model = User
 
-        fields = ('id', 'user', 'email',
+        fields = ('id', 'username', 'email',
                   'password', 'password_confirmation', 'programmes')  # exercise_grouping
 
 
@@ -53,7 +53,7 @@ class ProgrammeSerializer(serializers.HyperlinkedModelSerializer):
     class Meta:
         # ..to combine the user and programme fields
         model = Programme
-        fields = ('id', 'programmes', 'user')
+        fields = ('id', 'programmes')
 
 
 class ExerciseSerializer(serializers.HyperlinkedModelSerializer):

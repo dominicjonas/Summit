@@ -15,7 +15,7 @@ from itertools import groupby
 # 1 user can have many groups
 # 1 group can have many exercises
 class User(AbstractUser):
-    user = models.CharField(max_length=200, unique=True)
+    username = models.CharField(max_length=200, unique=True)
     email = models.EmailField(verbose_name='email',
                               max_length=50)
     # exercise_group = models.CharField(max_length=100, blank=True, null=True)
@@ -54,13 +54,13 @@ class Programme(models.Model):
 
 class Exercise(models.Model):
 
-    exercise_name = models.CharField(max_length=50, blank=True)
+    exercise_name = models.CharField(max_length=50, blank=True, null=True)
     programme = models.ForeignKey(
-        Programme, related_name='exercise', on_delete=models.CASCADE)  # default='ExerciseProgramme'
+        Programme, related_name='exercise', on_delete=models.CASCADE, null=True)
 
 
 class UserExerciseLog(models.Model):
-    user = models.ForeignKey(User, related_name='user_name',
+    user = models.ForeignKey(User, related_name='exercise_log',
                              on_delete=models.CASCADE, blank=True)  # , related_name='user'
     exercise = models.ForeignKey(
         Exercise, related_name='userlog', on_delete=models.CASCADE)
