@@ -1,0 +1,19 @@
+.graph-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 3rem;
+}
+
+.chart {
+  width: 400px;
+  background: rgba(40, 40, 63, 0.329);
+  border-radius: 0.5em;
+  padding: 2rem;
+  box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 6px -1px,
+    rgba(0, 0, 0, 0.06) 0px 2px 4px -1px;
+  transition: 0.2s ease background;
+  &:hover {
+    background: rgba(55, 55, 85, 0.329);
+  }
+}
