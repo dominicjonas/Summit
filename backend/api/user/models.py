@@ -31,7 +31,8 @@ class User(AbstractUser):
             {'exercise_weight': x.exercise_weight,
              'date_completed': x.date_completed,
              'exercise_name': x.exercise.exercise_name,
-             'programme': x.exercise.programme.name, 'sets': x.sets,
+             'programme': x.exercise.programme.name if x.exercise.programme else 'none',
+             'sets': x.sets,
              'id': x.id,
              'exercise_id': x.exercise_id,
              'reps_per_set': x.reps_per_set} for x in userlog]
@@ -68,3 +69,6 @@ class UserExerciseLog(models.Model):
     date_completed = models.DateTimeField(auto_now=True)
     sets = models.IntegerField(default=0)
     reps_per_set = models.IntegerField(default=0)
+
+    def __str__(self):
+        return f'{self.user}{self.exercise}{self.exercise_weight}{self.date_completed}'

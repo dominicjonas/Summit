@@ -46,24 +46,23 @@ class UserSerializer(serializers.ModelSerializer):
                   'password', 'password_confirmation', 'programmes')  # exercise_grouping
 
 
-class ProgrammeSerializer(serializers.HyperlinkedModelSerializer):
+class ProgrammeSerializer(serializers.ModelSerializer):
     # Here we call the user serializer..
-    user = UserSerializer()
 
     class Meta:
         # ..to combine the user and programme fields
         model = Programme
-        fields = ('id', 'programmes')
+        fields = ('id', 'name')  # user?
 
 
-class ExerciseSerializer(serializers.HyperlinkedModelSerializer):
+class ExerciseSerializer(serializers.ModelSerializer):
     class Meta:
         model = Exercise
         # programme or programmeS?
-        fields = ('id', 'exercise_name', 'programmes')
+        fields = ('id', 'exercise_name', 'programme')
 
 
-class UserExerciseLogSerializer(serializers.HyperlinkedModelSerializer):
+class UserExerciseLogSerializer(serializers.ModelSerializer):
     class Meta:
         model = UserExerciseLog
         fields = ('user', 'exercise', 'exercise_weight',
