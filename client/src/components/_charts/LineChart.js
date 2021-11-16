@@ -17,8 +17,16 @@ const data = {
 
 const options = {
   scales: {
-    y: {
-      beginAtZero: true
+    yAxis: {
+      beginAtZero: true,
+      ticks: {
+        callback: function (value) {
+          return `${value}kg`
+        }
+      },
+      grid: {
+        lineWidth: 1
+      }
     }
   }
 }

@@ -32,13 +32,17 @@ const data = {
 const options = {
   responsive: true,
   scales: {
-    yAxes: [
-      {
-        ticks: {
-          beginAtZero: true
+    yAxis: {
+      beginAtZero: true,
+      ticks: {
+        callback: function (value) {
+          return `${value}kg`
         }
+      },
+      grid: {
+        lineWidth: 1
       }
-    ]
+    }
   }
 }
 

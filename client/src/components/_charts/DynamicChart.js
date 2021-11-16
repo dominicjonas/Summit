@@ -2,7 +2,9 @@ import React, { useEffect, useState } from 'react'
 import { Bar } from 'react-chartjs-2'
 import { makeRandomDataArray } from '../_data/randomData'
 
-const rand = () => Math.round(Math.random() * 20 - 10)
+const rand = () => Math.round(Math.random() * 100)
+// having a minus number as the second random input will create the up down effect on the dynamic chart
+// const rand = () => Math.round(Math.random() * 30 - 20)
 
 const genData = () => ({
   labels: ['Red', 'Blue', 'Yellow', 'Green', 'Purple', 'Orange'],
@@ -33,13 +35,17 @@ const genData = () => ({
 
 const options = {
   scales: {
-    yAxes: [
-      {
-        ticks: {
-          beginAtZero: true
+    yAxis: {
+      beginAtZero: true,
+      ticks: {
+        callback: function (value) {
+          return `${value}kg`
         }
+      },
+      grid: {
+        lineWidth: 1
       }
-    ]
+    }
   }
 }
 
