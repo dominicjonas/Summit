@@ -1,12 +1,13 @@
 import React from 'react'
 import { Line } from 'react-chartjs-2'
+import { makeRandomDataArray } from '../_data/randomData'
 
 const data = {
   labels: ['S1', 'S2', 'S3', 'S4', 'S5', 'S6', 'S7', 'S8'],
   datasets: [
     {
       label: 'session',
-      data: [50, 55, 60, 50, 70, 75, 85, 100],
+      data: makeRandomDataArray(8),
       fill: false,
       backgroundColor: 'rgb(81, 214, 203)',
       borderColor: 'rgb(24, 247, 228,)'

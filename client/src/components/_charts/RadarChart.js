@@ -1,12 +1,13 @@
 import React from 'react'
 import { Radar } from 'react-chartjs-2'
+import { makeRandomDataArray } from '../_data/randomData'
 
 const data = {
   labels: ['Chest', 'Back', 'Shoulders', 'Arms', 'Legs', 'Core'],
   datasets: [
     {
       label: 'frequency',
-      data: [20, 39, 33, 5, 12, 38],
+      data: makeRandomDataArray(6),
       backgroundColor: 'rgba(81, 214, 203, 0.2)',
       borderColor: 'rgb(81, 214, 203)',
       borderWidth: 1
