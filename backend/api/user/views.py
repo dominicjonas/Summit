@@ -1,15 +1,15 @@
 from django.shortcuts import redirect, render
 from django.urls import reverse
 from django.shortcuts import render
-from .models import Exercise, ExerciseGroup, User
-from .serializers import ExerciseGroupSerializer, ExerciseSerializer, UserSerializer
+from .models import Exercise, Programme, User, UserExerciseLog
+from .serializers import ExerciseSerializer, UserSerializer, ProgrammeSerializer, UserExerciseLogSerializer
 from rest_framework import response, request
 from django.shortcuts import render
 from django.contrib.auth import login
 from user.templates.users.forms import CustomUserCreationForm
 # import requests
 
-from rest_framework import views, response, status
+from rest_framework import serializers, views, response, status, exceptions
 
 
 from rest_framework.views import APIView
@@ -71,8 +71,9 @@ def dashboard(request):
     return render(request, "users/dashboard.html")
 
 
-def dashboard(request):
-    return render(request, "users/dashboard.html")
+class ProgrammeListView (views.APIView):
+    queryset = Programme.objects.all()
+    serializer_class = ProgrammeSerializer
 
 
 class ExerciseListView (views.APIView):
@@ -89,6 +90,33 @@ class ExerciseListView (views.APIView):
     def post(self, request):
         print(request.data)
         exercise_to_add = ExerciseSerializer(data=request.data)
+        if exercise_to_add.is_valid():
+            exercise_to_add.save()
+            return response.Response(exercise_to_add.data, status=status.HTTP_201_CREATED)
+
+        return response.Response(
+            exercise_to_add.errors, status=status.HTTP_400_BAD_REQUEST
+        )
+
+
+class userDetailView(views.APIView):
+    def get_user_by_id(self, id):
+        try:
+            return User.objects.get(id=id)
+        except User.DoesNotExist:
+            raise exceptions.NotFound(detail="user does not exist")
+
+    def get_exercise_by_id(self, exercise_id):
+        try:
+            return UserExerciseLog.objects.get(id=exercise_id)
+        except UserExerciseLog.DoesNotExist:
+            raise exceptions.NotFound(detail="exercise does not exist")
+
+    def post(self, request, id, exercise_id):
+        print(request.data)
+        user = self.get_user_by_id(id)
+        exercise = self.get_user_by_id(exercise_id)
+        exercise_to_add = ExerciseSerializer(user, exercise, data=request.data)
         if exercise_to_add.is_valid():
             exercise_to_add.save()
             return response.Response(exercise_to_add.data, status=status.HTTP_201_CREATED)
@@ -118,21 +146,52 @@ class UserListView(views.APIView):
         )
 
 
-class ExerciseGroupListView(views.APIView):
-    def get(self, request):
-        exercise_group = ExerciseGroup.objects.all()
-        serialized_exercise_group = ExerciseGroupSerializer(
-            exercise_group, many=True, context={'request', request}
+class userDetailView(views.APIView):
+    def get_user_by_id(self, id):
+        try:
+            return User.objects.get(id=id)
+        except User.DoesNotExist:
+            raise exceptions.NotFound(detail="user does not exist")
+
+    def get(self, request, id):
+        user = self.get_user_by_id(id)
+        serialized_user = UserSerializer(
+            user, context={"request": request})
+        return response.Response(serialized_user.data, status=status.HTTP_200_OK)
+
+    def delete(self, request, id):
+        user = self.get_user_by_id(id)
+        user.delete()
+        return response.Response(status=status.HTTP_204_NO_CONTENT)
+
+    def put(self, request, id):
+        user = self.get_user_by_id(id)
+        updated_user = UserSerializer(
+            user, data=request.data, context={"request": request})
+        if updated_user.is_valid():
+            updated_user.save()
+            return response.Response(
+                updated_user.data, status=status.HTTP_202_ACCEPTED
+            )
+        return response.Response(
+            updated_user.errors, status=status.HTTP_400_BAD_REQUEST
         )
-        return response.Response(serialized_exercise_group.data, status=status.HTTP_200_OK)
 
+
+class UserExerciseLogListView (views.APIView):
+    def get(self, request):
+        user = UserExerciseLog.objects.all()
+        serialized_class = UserExerciseLogSerializer(
+            user, many=True, context={'request', request}
+        )
+        return response.Response(serialized_class.data, status=status.HTTP_200_OK)
+
+
+class UserExerciseLogListView (views.APIView):
     def post(self, request):
-        print(request.data)
-        exercise_group_to_add = ExerciseGroupSerializer(data=request.data)
-        if exercise_group_to_add.is_valid():
-            exercise_group_to_add.save()
-            return response.Response(exercise_group_to_add.data, status=status.HTTP_201_CREATED)
-
-        return response.Response('this is a bad request',
-                                 exercise_group_to_add.errors, status=status.HTTP_400_BAD_REQUEST
-                                 )
+        # weight = self.post(exercise_id)
+        weight_to_add = UserExerciseLogSerializer(data=request)
+        print(request)
+        if weight_to_add.is_valid():
+            weight_to_add.save()
+        return response.Response(weight_to_add.data, status=status.HTTP_201_CREATED)

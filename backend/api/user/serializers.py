@@ -1,7 +1,8 @@
 from rest_framework import serializers
-from .models import Exercise, ExerciseGroup, User
+from .models import Exercise, Programme, User, UserExerciseLog
 from django.contrib.auth import get_user_model, password_validation
 from django.contrib.auth.hashers import make_password
+from rest_framework.fields import ReadOnlyField, SerializerMethodField
 from django.core.exceptions import ValidationError
 User = get_user_model()
 
@@ -35,39 +36,35 @@ class UserSerializer(serializers.ModelSerializer):
 
         return data
 
-    exercise_groups = serializers.ReadOnlyField(
-        source="get_groups")
-    # exercise_grouping = ExerciseGroupSerializer(
-    #     source='get_exercise_group', read_only=True)
+    programmes = serializers.ReadOnlyField(
+        source="build_user_programme")
 
     class Meta:
         model = User
 
-        fields = ('id', 'username', 'email',
-                  'password', 'password_confirmation', 'exercise_groups')  # exercise_grouping
-        #   'password', 'password_confirmation', 'exercise_group')  # exercise_grouping
-
-        depth = 2
-        # fields = ('id', 'username', 'password', 'programmes')
+        fields = ('id', 'user', 'email',
+                  'password', 'password_confirmation', 'programmes')  # exercise_grouping
 
 
-class ExerciseGroupSerializer(serializers.HyperlinkedModelSerializer):
+class ProgrammeSerializer(serializers.HyperlinkedModelSerializer):
+    # Here we call the user serializer..
+    user = UserSerializer()
+
     class Meta:
-        model = ExerciseGroup
-    # fields = ('exercise_group')
-        fields = ('id', 'name', 'user')
-    # fields = ('id', 'exercise_group', 'username', 'exercise_name')
-
-    depth = 2
+        # ..to combine the user and programme fields
+        model = Programme
+        fields = ('id', 'programmes', 'user')
 
 
 class ExerciseSerializer(serializers.HyperlinkedModelSerializer):
-    # exercise_group = ExerciseGroupSerializer(
-    #     source='get_exercise_group', read_only=True)
-
     class Meta:
         model = Exercise
-        fields = ('id', 'exercise_name', 'exercise_weight',
-                  'user', 'exercise_group', 'date_completed')
+        # programme or programmeS?
+        fields = ('id', 'exercise_name', 'programmes')
 
-        depth = 2
+
+class UserExerciseLogSerializer(serializers.HyperlinkedModelSerializer):
+    class Meta:
+        model = UserExerciseLog
+        fields = ('user', 'exercise', 'exercise_weight',
+                  'date_completed', 'id')

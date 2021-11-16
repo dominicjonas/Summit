@@ -1,6 +1,10 @@
 from django.db import models
-from django import forms
 from django.contrib.auth.models import AbstractUser
+from django.db.models.fields.related import ForeignKey
+from django.db.models.fields import DateTimeField, IntegerField
+from django.db.models import Count
+from django.db.models.fields.json import DataContains
+from rest_framework import serializers
 from itertools import groupby
 # Create your models here.
 
@@ -11,75 +15,56 @@ from itertools import groupby
 # 1 user can have many groups
 # 1 group can have many exercises
 class User(AbstractUser):
-    username = models.CharField(max_length=200, unique=True)
+    user = models.CharField(max_length=200, unique=True)
     email = models.EmailField(verbose_name='email',
                               max_length=50)
     # exercise_group = models.CharField(max_length=100, blank=True, null=True)
 
-    def get_groups(self):
-        exercise = Exercise.objects.filter(username=self)
-        print(exercise)
-        # exercise = Exercise.objects.filter(exercise_group__in=exercise_groups)
-        # return exercise_group
+    def build_user_programme(self):
+        # 1 - get all exercise logs for user
+        userlog = UserExerciseLog.objects.filter(
+            user=self,).order_by("date_completed")
+        print(userlog)
+        # Here we're calling the variables in the model to be displayed / combined in the user data
+        serialize_user_logs = [
 
-        serialize_exercises = [
-            {
-                'exercise_name': x.exercise_name,
-                'exercise_weight': x.exercise_weight,
-                'exercise_group': x.exercise_group,
-            } for x in exercise
-        ]
+            {'exercise_weight': x.exercise_weight,
+             'date_completed': x.date_completed,
+             'exercise_name': x.exercise.exercise_name,
+             'programme': x.exercise.programme.name, 'sets': x.sets,
+             'id': x.id,
+             'exercise_id': x.exercise_id,
+             'reps_per_set': x.reps_per_set} for x in userlog]
 
-        grouped_logs = groupby(serialize_exercises,
-                               lambda x: x['exercise_group'])
-        exercise_groupings = {k: list(v) for k, v in grouped_logs}
+        # exercise id
 
-        return {'Exercises': exercise_groupings}
+        grouped_logs = groupby(serialize_user_logs, lambda x: x['programme'])
+        # list(v) creates an array
+        programme_log_groups = {k: list(v) for k, v in grouped_logs}
+
+        return {'Activities': programme_log_groups}
 
 
-class ExerciseGroup(models.Model):
-    name = models.CharField(
-        max_length=50, default='exercise_group')
-    # max_length=50, blank=True, null=True, default='exercise_group')
-    user = models.ForeignKey(
-        User, on_delete=models.CASCADE, related_name='exercise_group', blank=True, null=True)  # blank=True, null=True)
-    # exercise_name = models.ForeignKey(Exercise, on_delete=models.CASCADE)
-    # exercise_name = models.CharField(max_length=50, blank=True)
-    # user = models.ForeignKey(
-    #     User, on_delete=models.CASCADE, null=True, default=None, related_name='exercise_groups')
+class Programme(models.Model):
+    name = models.CharField(max_length=50, blank=True)
 
     def __str__(self):
-        return self.exercise_group
-
-# why is get_groups cycling over nothing? why is it not finding the exercises?
-# try filtering on exercise groups to see if that works
+        return self.name
 
 
 class Exercise(models.Model):
-    user = models.ForeignKey(
-        User, on_delete=models.CASCADE, related_name="user", blank=True, null=True)
-    exercise_group = models.ForeignKey(
-        ExerciseGroup, related_name='exercise', on_delete=models.CASCADE, blank=True, null=True)
-    exercise_name = models.CharField(max_length=50, blank=True, null=True)
+
+    exercise_name = models.CharField(max_length=50, blank=True)
+    programme = models.ForeignKey(
+        Programme, related_name='exercise', on_delete=models.CASCADE)  # default='ExerciseProgramme'
+
+
+class UserExerciseLog(models.Model):
+    user = models.ForeignKey(User, related_name='user_name',
+                             on_delete=models.CASCADE, blank=True)  # , related_name='user'
+    exercise = models.ForeignKey(
+        Exercise, related_name='userlog', on_delete=models.CASCADE)
+    exercise_weight = models.IntegerField(default=0)
     date_completed = models.DateTimeField(auto_now=True)
-    exercise_weight = models.DecimalField(
-        max_digits=6, decimal_places=2, default=0)
-
-# =========================================================================================================
-
-
-# class User(models.Model):
-#     name = models.CharField(max_length=200)
-#     email = models.CharField(max_length=200)
-#     exercise_group = models.CharField(max_length=100, blank=True, null=True)
-
-
-# class ExerciseGroup(models.Model):
-#     user = models.ForeignKey(User, on_delete=models.CASCADE)
-#     name = models.CharField(max_length=200)
-
-
-# class Exercise(models.Model):
-#     exercise_group = models.ForeignKey(ExerciseGroup, on_delete=models.CASCADE)
-#     name = models.CharField(max_length=100)
-#     weight = models.DecimalField(max_digits=6, decimal_places=2)
+    sets = models.IntegerField(default=0)
+    reps_per_set = models.IntegerField(default=0)
