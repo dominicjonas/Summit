@@ -1,11 +1,12 @@
 import React from 'react'
 import { Pie } from 'react-chartjs-2'
+import { makeRandomDataArray } from '../_data/randomData'
 
 const data = {
   labels: ['Week 1', 'Week 2', 'Week 3', 'Week 4', 'Week 5', 'Week 6'],
   datasets: [
     {
-      data: [12, 19, 3, 5, 2, 3],
+      data: makeRandomDataArray(6),
       backgroundColor: [
         'rgba(255, 99, 132, 0.2)',
         'rgba(54, 162, 235, 0.2)',

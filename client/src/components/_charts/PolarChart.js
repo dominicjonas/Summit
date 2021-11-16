@@ -1,12 +1,13 @@
 import React from 'react'
 import { PolarArea } from 'react-chartjs-2'
+import { makeRandomDataArray } from '../_data/randomData'
 
 const data = {
   labels: ['Red', 'Blue', 'Yellow', 'Green', 'Purple', 'Orange'],
   datasets: [
     {
       label: '# of Votes',
-      data: [12, 19, 3, 5, 2, 3],
+      data: makeRandomDataArray(6),
       backgroundColor: [
         'rgba(255, 99, 132, 0.5)',
         'rgba(54, 162, 235, 0.5)',

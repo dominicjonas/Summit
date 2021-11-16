@@ -39,15 +39,13 @@
       font-size: 1.3rem;
       background: transparent;
       color: var(--dark-text2);
-      border: none;
+      border: 1px solid var(--logo-teal);
       box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
-      padding: 0.2em 0.5em;
+      padding: 0.3em 0.6em;
       cursor: pointer;
       transition: 300ms all;
       &:hover {
-        border: none;
         background: var(--dark-card-hover);
-        color: var(--dark-top-bg);
       }
     }
   }
