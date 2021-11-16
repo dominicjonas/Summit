@@ -364,7 +364,7 @@ a:active {
   color: var(--logo-teal);
   margin: 2rem 0;
   font-family: var(--font-poppins);
-  font-weight: 400;
+  font-weight: 100;
 }
 
 .exercise-group-container .exercise-links {
