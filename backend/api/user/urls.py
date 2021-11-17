@@ -14,10 +14,8 @@ Including another URLconf
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
 
-from django.conf.urls import url, include
 from django.urls import path
-from .views import index, ExerciseListView, UserListView, dashboard, RegisterPage, LoginPage
-# from .views import index, ExerciseListView, UserListView, dashboard, register
+from .views import ProgrammeListView, UserExerciseLogListView, index, ExerciseListView, UserListView, dashboard, RegisterPage, LoginPage
 
 urlpatterns = [
     path("", index),
@@ -25,8 +23,7 @@ urlpatterns = [
     path("dashboard/", dashboard, name="dashboard"),
     path('register/', RegisterPage.as_view()),
     path('login/', LoginPage.as_view()),
-    # this gives access to login, logout, pswd change/reset, rest done - very useful for easy user management
-    # url(r"^accounts/", include("django.contrib.auth.urls")),
-    # url(r"^register/", register, name="register"),
-    path("exercise-list/", ExerciseListView.as_view()),
+    path("exercise/", ExerciseListView.as_view()),
+    path("userlog/", UserExerciseLogListView.as_view()),
+    path("programme/", ProgrammeListView.as_view()),
 ]

@@ -82,7 +82,7 @@ WSGI_APPLICATION = 'api.wsgi.application'
 DATABASES = {
     "default": {
         "ENGINE": "django.db.backends.postgresql_psycopg2",
-        "NAME": "summit3db",
+        "NAME": "summit2db",
         "HOST": "localhost",
         "PORT": 5432,
     }

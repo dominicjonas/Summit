@@ -1,23 +1,5 @@
-@import '../utils/breakpoints';
-
-// .container {
-//   padding: 0 25px;
-//   min-width: 100vw;
-//   height: 100vh;
-//   margin: 0 auto;
-//   padding: 1rem;
-//   display: flex;
-//   align-items: center;
-//   flex-direction: column;
-//   background: var(--dark-bg-secondary);
-//   color: var(--dark-text2);
-//   outline: 1px solid blue;
-
-//   // takes away padding on larger screens
-//   // @include breakpoint(large) {
-//   //   max-width: 2000px;
-//   // }
-// }
+@use '../utils/functions' as *;
+@use '../utils/breakpoints' as *;
 
 .exercise-group-container {
   background: var(--dark-bg-primary);
@@ -25,23 +7,23 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding-bottom: 5rem;
+  padding-bottom: rem(80);
   h1 {
     color: var(--logo-teal);
-    margin: 2rem 0;
+    margin: rem(16) 0;
     font-family: var(--font-poppins);
     font-weight: 100;
   }
   .exercise-links {
     display: flex;
-    gap: 1rem;
+    gap: rem(16);
     button {
-      font-size: 1.3rem;
+      font-size: rem(20.8);
       background: transparent;
       color: var(--dark-text2);
-      border: 1px solid var(--logo-teal);
-      box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
-      padding: 0.3em 0.6em;
+      border: rem(1) solid var(--logo-teal);
+      box-shadow: rgba(0, 0, 0, 0.15) rem(1.95) rem(1.95) rem(2.6);
+      padding: rem(4.8) rem(9.6);
       cursor: pointer;
       transition: 300ms all;
       &:hover {
@@ -50,29 +32,54 @@
     }
   }
   h2 {
-    margin-top: 2rem;
+    margin-top: rem(32);
     color: var(--dark-text2);
     font-weight: 300;
-    font-size: 2rem;
+    font-size: rem(32);
   }
   .weight-input-container {
-    margin: 2rem 0;
+    margin-top: rem(32);
+    display: flex;
+    flex-direction: column;
+    @include breakpoint(medium) {
+      display: grid;
+      grid-template-columns: rem(350) rem(250) rem(100);
+      grid-template-rows: repeat(2, 1fr);
+      row-gap: rem(16);
+      place-content: center;
+    }
+
+    @include breakpoint(large) {
+      display: grid;
+      grid-template-columns: rem(350) rem(250) rem(100);
+      grid-template-rows: repeat(2, 1fr);
+      row-gap: rem(16);
+      place-content: center;
+    }
+
+    label {
+      display: flex;
+      align-items: center;
+      padding: rem(3.2) rem(8);
+      border: rem(1) solid var(--logo-teal-faint);
+      color: var(--dark-text2);
+    }
     input {
-      font-size: 1.5rem;
-      border-radius: 0.1em;
-      box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
+      font-size: rem(24);
+      padding: rem(3.2) rem(8);
+      border: rem(1) solid var(--logo-teal-faint);
+      box-shadow: rgba(0, 0, 0, 0.15) rem(1.95) rem(1.95) rem(2.6);
     }
     button {
-      font-size: 1.5rem;
+      font-size: rem(24);
       background: transparent;
       color: var(--dark-text2);
-      border: none;
-      box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
-      padding: 0.2em 0.5em;
+      border: rem(1) solid var(--logo-teal-faint);
+      box-shadow: rgba(0, 0, 0, 0.15) rem(1.95) rem(1.95) rem(2.6);
+      padding: rem(3.2) rem(8);
       cursor: pointer;
       transition: 300ms all;
       &:hover {
-        border: none;
         background: var(--dark-card-hover);
       }
     }

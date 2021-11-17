@@ -18,31 +18,23 @@ const Navbar = () => {
           <Link to='#' className='menu-bars'>
             <FaIcons.FaBars onClick={showSidebar} />
           </Link>
-          <img
-            src={logo}
-            alt='logo'
-            className='nav-logo'
-            style={{
-              width: '50px',
-              height: '50px',
-              marginLeft: 'auto',
-              marginRight: '50px'
-            }}
-          />
+          <Link to='/' className='nav-logo'>
+            <img src={logo} alt='logo' style={{ height: '50px' }} />
+          </Link>
         </div>
         <nav className={sidebar ? 'nav-menu active' : 'nav-menu'}>
           <ul className='nav-menu-items' onClick={showSidebar}>
             <li className='navbar-toggle'>
               <Link to='#' className='menu-bars'>
-                <VscClose className='close-icon' />
+                <VscClose className='nav-close-icon' />
               </Link>
             </li>
-            {SidebarData.map((navitem, index) => {
+            {SidebarData.map((navItem, index) => {
               return (
-                <li key={index} className={navitem.className}>
-                  <Link to={navitem.path}>
-                    {navitem.icon}
-                    <span>{navitem.title}</span>
+                <li key={index} className={navItem.className}>
+                  <Link to={navItem.path}>
+                    {navItem.icon}
+                    <span>{navItem.title}</span>
                   </Link>
                 </li>
               )

@@ -1,7 +1,7 @@
 import React from 'react'
 import { Scatter } from 'react-chartjs-2'
 
-const rand = () => Math.round(Math.random() * 20 - 10)
+const rand = () => Math.round(Math.random() * 50)
 
 const data = {
   datasets: [
@@ -30,13 +30,17 @@ const data = {
 
 const options = {
   scales: {
-    yAxes: [
-      {
-        ticks: {
-          beginAtZero: true
+    yAxis: {
+      beginAtZero: true,
+      ticks: {
+        callback: function (value) {
+          return `${value}kg`
         }
+      },
+      grid: {
+        lineWidth: 1
       }
-    ]
+    }
   }
 }
 
