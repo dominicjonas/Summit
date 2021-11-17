@@ -23,7 +23,11 @@ const Row = () => {
         <PieChart />
       </div>
       <form className='weight-input-container'>
+        <label>What was your personal best this session?</label>
         <input type='text' placeholder='Enter session weight' />
+        <button>submit</button>
+        <label>What is your lifting goal for next session?</label>
+        <input type='text' placeholder='Enter weight target' />
         <button>submit</button>
       </form>
     </div>

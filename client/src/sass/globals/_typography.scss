@@ -1,22 +1,23 @@
-@import '../utils/breakpoints';
+// @import '../utils/breakpoints';
+@use '../utils/functions' as *;
 
 h1,
 h2,
 h3 {
   margin-top: 0;
-  line-height: 1.1;
+  line-height: 1.3;
 }
 
 h1 {
-  font-size: 3rem;
+  font-size: rem(55);
   //   margin-bottom: 3px;
-  @include breakpoint(large) {
-    font-size: 3rem;
-  }
+  // @include breakpoint(large) {
+  //   font-size: 3rem;
+  // }
 }
 
 h2 {
-  font-size: 2rem;
+  font-size: rem(30);
   //   margin-bottom: 3px;
 }
 

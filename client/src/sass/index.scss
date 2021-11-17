@@ -1,16 +1,16 @@
 //* pages
-@import './components/navbar';
-@import './components/testing';
-@import './components/graphs';
+@forward './components/navbar';
+@forward './components/testing';
+@forward './components/graphs';
 
 //* auth
-@import './components/login';
+@forward './components/login';
 
-@import './globals/boilerplate';
-@import './globals/typography';
-@import './globals/layout';
-@import './globals/fonts';
-@import './globals//colors';
+@forward './globals/boilerplate';
+@forward './globals/typography';
+@forward './globals/layout';
+@forward './globals/fonts';
+@forward './globals//colors';
 
-@import './utils/breakpoints';
-@import './utils/functions';
+@forward './utils/breakpoints';
+@forward './utils/functions';

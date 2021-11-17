@@ -29,7 +29,12 @@ module.exports = (webpackEnv) => {
           test: /\.s(a|c)ss$/,
           use: ['style-loader', 'css-loader', 'sass-loader']
         },
-        { test: /\.(png|jpe?g|gif)$/i, use: 'file-loader' }
+        { test: /\.(png|jpe?g|gif)$/i, use: 'file-loader' },
+        {
+          test: /\.mjs$/,
+          include: /node_modules/,
+          type: 'javascript/auto'
+        }
       ]
     },
     devServer: {
