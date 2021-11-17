@@ -4,10 +4,12 @@ import BarChart from '../_charts/BarChart'
 import LineChart from '../_charts/LineChart'
 import PieChart from '../_charts/PieChart'
 
+import { motion } from 'framer-motion'
+
 const BenchPress = () => {
   return (
     <div className='exercise-group-container'>
-      <h1>Chest</h1>
+      <motion.h1 animate={{ fontSize: '50px' }}>Chest</motion.h1>
       <div className='exercise-links'>
         <Link to='/benchpress'>
           <button>Bench Press</button>
