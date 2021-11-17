@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from 'react'
 import { Bar } from 'react-chartjs-2'
-import { makeRandomDataArray } from '../_data/randomData'
 
 const rand = () => Math.round(Math.random() * 100)
 // having a minus number as the second random input will create the up down effect on the dynamic chart

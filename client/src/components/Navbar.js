@@ -18,17 +18,7 @@ const Navbar = () => {
           <Link to='#' className='menu-bars'>
             <FaIcons.FaBars onClick={showSidebar} />
           </Link>
-          <img
-            src={logo}
-            alt='logo'
-            className='nav-logo'
-            style={{
-              width: '50px',
-              height: '50px',
-              marginLeft: 'auto',
-              marginRight: '50px'
-            }}
-          />
+          <img src={logo} alt='logo' className='nav-logo' />
         </div>
         <nav className={sidebar ? 'nav-menu active' : 'nav-menu'}>
           <ul className='nav-menu-items' onClick={showSidebar}>

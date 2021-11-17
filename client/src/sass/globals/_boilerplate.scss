@@ -1,3 +1,5 @@
+@use '../utils/functions' as *;
+
 html {
   // this helps with accessibility. user is able to adjust fontsize in their browser
   font-size: 100%;
@@ -12,7 +14,7 @@ html {
 }
 
 *::-webkit-scrollbar {
-  width: 12px;
+  width: rem(12);
 }
 
 *::-webkit-scrollbar-track {
