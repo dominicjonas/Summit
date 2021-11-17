@@ -1,24 +1,5 @@
 @use '../utils/functions' as *;
-@use '../utils/breakpoints';
-
-// .container {
-//   padding: 0 25px;
-//   min-width: 100vw;
-//   height: 100vh;
-//   margin: 0 auto;
-//   padding: 1rem;
-//   display: flex;
-//   align-items: center;
-//   flex-direction: column;
-//   background: var(--dark-bg-secondary);
-//   color: var(--dark-text2);
-//   outline: 1px solid blue;
-
-//   // takes away padding on larger screens
-//   // @include breakpoint(large) {
-//   //   max-width: 2000px;
-//   // }
-// }
+@use '../utils/breakpoints' as *;
 
 .exercise-group-container {
   background: var(--dark-bg-primary);
@@ -57,23 +38,48 @@
     font-size: rem(32);
   }
   .weight-input-container {
-    margin: rem(32) 0;
+    margin-top: rem(32);
+    display: flex;
+    flex-direction: column;
+    @include breakpoint(medium) {
+      display: grid;
+      grid-template-columns: rem(350) rem(250) rem(100);
+      grid-template-rows: repeat(2, 1fr);
+      row-gap: rem(16);
+      place-content: center;
+    }
+
+    @include breakpoint(large) {
+      display: grid;
+      grid-template-columns: rem(350) rem(250) rem(100);
+      grid-template-rows: repeat(2, 1fr);
+      row-gap: rem(16);
+      place-content: center;
+    }
+
+    label {
+      display: flex;
+      align-items: center;
+      padding: rem(3.2) rem(8);
+      border: rem(1) solid var(--logo-teal-faint);
+      color: var(--dark-text2);
+    }
     input {
       font-size: rem(24);
-      border-radius: rem(1.6);
+      padding: rem(3.2) rem(8);
+      border: rem(1) solid var(--logo-teal-faint);
       box-shadow: rgba(0, 0, 0, 0.15) rem(1.95) rem(1.95) rem(2.6);
     }
     button {
-      font-size: rem(16);
+      font-size: rem(24);
       background: transparent;
       color: var(--dark-text2);
-      border: none;
+      border: rem(1) solid var(--logo-teal-faint);
       box-shadow: rgba(0, 0, 0, 0.15) rem(1.95) rem(1.95) rem(2.6);
       padding: rem(3.2) rem(8);
       cursor: pointer;
       transition: 300ms all;
       &:hover {
-        border: none;
         background: var(--dark-card-hover);
       }
     }

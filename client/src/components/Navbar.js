@@ -26,7 +26,7 @@ const Navbar = () => {
           <ul className='nav-menu-items' onClick={showSidebar}>
             <li className='navbar-toggle'>
               <Link to='#' className='menu-bars'>
-                <VscClose className='close-icon' />
+                <VscClose />
               </Link>
             </li>
             {SidebarData.map((navitem, index) => {
