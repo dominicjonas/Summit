@@ -26,9 +26,6 @@
       padding: rem(4.8) rem(9.6);
       cursor: pointer;
       transition: 300ms all;
-      &:hover {
-        background: var(--dark-card-hover);
-      }
     }
   }
   h2 {
@@ -65,10 +62,21 @@
       color: var(--dark-text2);
     }
     input {
+      background: transparent;
+      color: var(--dark-text2);
       font-size: rem(24);
       padding: rem(3.2) rem(8);
       border: rem(1) solid var(--logo-teal-faint);
       box-shadow: rgba(0, 0, 0, 0.15) rem(1.95) rem(1.95) rem(2.6);
+      transition: 0.3s ease;
+      &:focus {
+        outline: none;
+        box-shadow: rgba(123, 111, 130, 0.25) rem(0) rem(54) rem(55),
+          rgba(18, 118, 120, 0.269) rem(0) rem(-12) rem(30),
+          rgba(12, 188, 201, 0.12) rem(0) rem(4) rem(6),
+          rgba(17, 135, 162, 0.42) rem(0) rem(12) rem(13),
+          rgba(32, 162, 191, 0.694) rem(0) rem(-3) rem(5);
+      }
     }
     button {
       font-size: rem(24);

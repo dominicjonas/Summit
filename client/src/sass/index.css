@@ -233,6 +233,7 @@ html {
 body {
   margin: 0;
   padding: 0;
+  background: var(--dark-bg-primary);
 }
 
 h1,
@@ -284,9 +285,6 @@ a:active {
   cursor: pointer;
   transition: 300ms all;
 }
-.exercise-group-container .exercise-links button:hover {
-  background: var(--dark-card-hover);
-}
 .exercise-group-container h2 {
   margin-top: 2rem;
   color: var(--dark-text2);
@@ -324,10 +322,17 @@ a:active {
   color: var(--dark-text2);
 }
 .exercise-group-container .weight-input-container input {
+  background: transparent;
+  color: var(--dark-text2);
   font-size: 1.5rem;
   padding: 0.2rem 0.5rem;
   border: 0.0625rem solid var(--logo-teal-faint);
   box-shadow: rgba(0, 0, 0, 0.15) 0.121875rem 0.121875rem 0.1625rem;
+  transition: 0.3s ease;
+}
+.exercise-group-container .weight-input-container input:focus {
+  outline: none;
+  box-shadow: rgba(123, 111, 130, 0.25) 0rem 3.375rem 3.4375rem, rgba(18, 118, 120, 0.269) 0rem -0.75rem 1.875rem, rgba(12, 188, 201, 0.12) 0rem 0.25rem 0.375rem, rgba(17, 135, 162, 0.42) 0rem 0.75rem 0.8125rem, rgba(32, 162, 191, 0.694) 0rem -0.1875rem 0.3125rem;
 }
 .exercise-group-container .weight-input-container button {
   font-size: 1.5rem;

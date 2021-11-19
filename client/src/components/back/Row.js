@@ -4,16 +4,32 @@ import BarChart from '../_charts/BarChart'
 import LineChart from '../_charts/LineChart'
 import PieChart from '../_charts/PieChart'
 
+import { motion } from 'framer-motion'
+
 const Row = () => {
   return (
     <div className='exercise-group-container'>
       <h1>Back</h1>
       <div className='exercise-links'>
         <Link to='/latpulldown'>
-          <button>Lat Pulldown</button>
+          <motion.button
+            whileHover={{ scale: 1.1 }}
+            // having bg color on hover change creates blur, due to GPU acceleration
+            whileTap={{ scale: 0.9 }}
+            transition={{ duration: 0.0125 }}
+          >
+            Lat Pulldown
+          </motion.button>
         </Link>
         <Link to='/row'>
-          <button>Row</button>
+          <motion.button
+            whileHover={{ scale: 1.1 }}
+            // having bg color on hover change creates blur, due to GPU acceleration
+            whileTap={{ scale: 0.9 }}
+            transition={{ duration: 0.0125 }}
+          >
+            Row
+          </motion.button>
         </Link>
       </div>
       <h2>Row</h2>

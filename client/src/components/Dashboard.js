@@ -13,6 +13,8 @@ import MultiLineChart from './_charts/MultiLineChart'
 import DynamicChart from './_charts/DynamicChart'
 import ScatterChart from './_charts/ScatterChart'
 
+import { motion } from 'framer-motion'
+
 const Dashboard = () => {
   // const [weight, setWeight] = useState(0)
   // const [exerciseInfo, setExerciseInfo] = useState([])
@@ -39,7 +41,12 @@ const Dashboard = () => {
   // }
 
   return (
-    <div className='exercise-group-container'>
+    <motion.div
+      className='exercise-group-container'
+      // initial={{ opacity: 0 }}
+      // animate={{ opacity: 1 }}
+      // transition={{ duration: 2 }}
+    >
       <h1>My Dashboard</h1>
       {/* <form onSubmit={handleWeightSubmit}>
         <label>Add weight: </label>
@@ -62,7 +69,7 @@ const Dashboard = () => {
         <DynamicChart />
         <ScatterChart />
       </div>
-    </div>
+    </motion.div>
   )
 }
 
