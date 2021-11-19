@@ -9,13 +9,27 @@ import { motion } from 'framer-motion'
 const BenchPress = () => {
   return (
     <div className='exercise-group-container'>
-      <motion.h1 animate={{ fontSize: '50px' }}>Chest</motion.h1>
+      <h1>Chest</h1>
       <div className='exercise-links'>
         <Link to='/benchpress'>
-          <button>Bench Press</button>
+          <motion.button
+            whileHover={{ scale: 1.1 }}
+            // having bg color on hover change creates blur, due to GPU acceleration
+            whileTap={{ scale: 0.9 }}
+            transition={{ duration: 0.0125 }}
+          >
+            Bench Press
+          </motion.button>
         </Link>
         <Link to='/cablefly'>
-          <button>Cable Fly</button>
+          <motion.button
+            whileHover={{ scale: 1.1 }}
+            // having bg color on hover change creates blur, due to GPU acceleration
+            whileTap={{ scale: 0.9 }}
+            transition={{ duration: 0.0125 }}
+          >
+            Cable Fly
+          </motion.button>
         </Link>
       </div>
       <h2>Bench Press</h2>

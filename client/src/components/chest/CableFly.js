@@ -1,8 +1,10 @@
-import React, { useState } from 'react'
+import React from 'react'
 import { Link } from 'react-router-dom'
 import BarChart from '../_charts/BarChart'
 import LineChart from '../_charts/LineChart'
 import PieChart from '../_charts/PieChart'
+
+import { motion } from 'framer-motion'
 
 const CableFly = () => {
   return (
@@ -10,10 +12,24 @@ const CableFly = () => {
       <h1>Chest</h1>
       <div className='exercise-links'>
         <Link to='/benchpress'>
-          <button>Bench Press</button>
+          <motion.button
+            whileHover={{ scale: 1.1 }}
+            // having bg color on hover change creates blur, due to GPU acceleration
+            whileTap={{ scale: 0.9 }}
+            transition={{ duration: 0.0125 }}
+          >
+            Bench Press
+          </motion.button>
         </Link>
         <Link to='/cablefly'>
-          <button>Cable Fly</button>
+          <motion.button
+            whileHover={{ scale: 1.1 }}
+            // having bg color on hover change creates blur, due to GPU acceleration
+            whileTap={{ scale: 0.9 }}
+            transition={{ duration: 0.0125 }}
+          >
+            Cable Fly
+          </motion.button>
         </Link>
       </div>
       <h2>Cable Fly</h2>

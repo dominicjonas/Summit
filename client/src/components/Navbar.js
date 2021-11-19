@@ -9,7 +9,10 @@ import logo from '../assets/logowhite.png'
 const Navbar = () => {
   const [sidebar, setSideBar] = useState(false)
 
-  const showSidebar = () => setSideBar(!sidebar)
+  const showSidebar = (e) => {
+    e.preventDefault()
+    setSideBar(!sidebar)
+  }
 
   return (
     <>
