@@ -33,6 +33,14 @@ const CableFly = () => {
     })
   }, [])
 
+  // making array of exercise weights for this exercise
+  const demoInfo = userInfo.filter((user) => user.user === 24)
+  const filteredExercise = demoInfo.filter(
+    (exerise) => exerise.exercise === 18
+  )
+
+  const dataArr = filteredExercise.map((data) => data.exercise_weight)
+
   return (
     <div className='exercise-group-container'>
       <h1>Chest</h1>
@@ -60,7 +68,7 @@ const CableFly = () => {
       </div>
       <h2>Cable Fly</h2>
       <div className='graph-container'>
-        <LineChart />
+        <LineChart data={dataArr} />
         <BarChart />
         <PieChart />
       </div>

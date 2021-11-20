@@ -33,23 +33,11 @@ const BenchPress = () => {
     })
   }, [])
 
-  // console.log(userInfo)
-
   const demoInfo = userInfo.filter((user) => user.user === 24)
-
   const filteredExercise = demoInfo.filter(
     (exerise) => exerise.exercise === 17
   )
-
-  console.log('filtered', filteredExercise)
-
   const dataArr = filteredExercise.map((data) => data.exercise_weight)
-
-  console.log(dataArr[1])
-
-  // const filteredUsers = userInfo.forEach((user) => console.log(user))
-
-  // console.log(filteredUsers)
 
   return (
     <div className='exercise-group-container'>
@@ -78,18 +66,7 @@ const BenchPress = () => {
       </div>
       <h2>Bench Press</h2>
       <div className='graph-container'>
-        <LineChart
-          data={{
-            labels: ['s1', 's2', 's3', 's4', 's5', 's6', 's7'],
-            dataSets: {
-              label: 'session',
-              data: dataArr,
-              fill: false,
-              backgroundColor: 'rgb(81, 214, 203)',
-              borderColor: 'rgb(24, 247, 228,)'
-            }
-          }}
-        />
+        <LineChart data={dataArr} />
         <BarChart />
         <PieChart />
       </div>
