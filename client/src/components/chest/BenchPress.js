@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react'
+import React, { useEffect, useState } from 'react'
 import { Link } from 'react-router-dom'
 import BarChart from '../_charts/BarChart'
 import LineChart from '../_charts/LineChart'
@@ -7,6 +7,20 @@ import PieChart from '../_charts/PieChart'
 import { motion } from 'framer-motion'
 
 const BenchPress = () => {
+  const [weight, setWeight] = useState('')
+
+  const handleSubmit = (e) => {
+    e.preventDefault()
+    const formData = {
+      user: 11,
+      exercise: 12,
+      exercise_weight: weight,
+      sets: 0,
+      reps_per_set: 0
+    }
+    console.log(formData)
+  }
+
   return (
     <div className='exercise-group-container'>
       <h1>Chest</h1>
@@ -38,9 +52,14 @@ const BenchPress = () => {
         <BarChart />
         <PieChart />
       </div>
-      <form className='weight-input-container'>
+      <form className='weight-input-container' onSubmit={handleSubmit}>
         <label>What was your personal best this session?</label>
-        <input type='text' placeholder='Enter session weight' />
+        <input
+          type='text'
+          placeholder='Enter session weight'
+          value={weight}
+          onChange={(e) => setWeight(e.target.value)}
+        />
         <button>submit</button>
         <label>What is your lifting goal for next session?</label>
         <input type='text' placeholder='Enter weight target' />
