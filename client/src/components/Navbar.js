@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect, useRef } from 'react'
 import { Link } from 'react-router-dom'
 import * as FaIcons from 'react-icons/fa'
 import { SidebarData } from './_data/navbarData'
@@ -8,11 +8,25 @@ import logo from '../assets/logowhite.png'
 
 const Navbar = () => {
   const [sidebar, setSideBar] = useState(false)
+  let menuRef = useRef()
 
   const showSidebar = (e) => {
     e.preventDefault()
     setSideBar(!sidebar)
   }
+
+  // handle closing the nav when clicking outside nav
+  useEffect(() => {
+    let handler = (e) => {
+      if (!menuRef.current.contains(e.target)) {
+        setSideBar(false)
+      }
+    }
+    document.addEventListener('mousedown', handler)
+    return () => {
+      document.removeEventListener('mousedown', handler)
+    }
+  })
 
   return (
     <>
@@ -25,7 +39,10 @@ const Navbar = () => {
             <img src={logo} alt='logo' style={{ height: '50px' }} />
           </Link>
         </div>
-        <nav className={sidebar ? 'nav-menu active' : 'nav-menu'}>
+        <nav
+          className={sidebar ? 'nav-menu active' : 'nav-menu'}
+          ref={menuRef}
+        >
           <ul className='nav-menu-items' onClick={showSidebar}>
             <li className='navbar-toggle'>
               <Link to='#' className='menu-bars'>
