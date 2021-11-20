@@ -35,15 +35,13 @@ const Login = () => {
     e.preventDefault()
     try {
       const { data } = await axios.post(
-        `http://localhost:8000/exercise/login/`,
-        // `http://localhost:8000/exercise/accounts/login/`,
+        'https://summit2app.herokuapp.com/exercise/login/',
         loginData.formData
       )
       console.log('data is: ', data)
       setTokenToLocalStorage(data.token)
-      if (res.status === 202) {
-        history.push('/')
-      }
+
+      history.push('/')
     } catch (err) {
       console.error('error login in user', err)
     }
