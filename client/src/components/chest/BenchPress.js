@@ -3,18 +3,22 @@ import { Link } from 'react-router-dom'
 import BarChart from '../_charts/BarChart'
 import LineChart from '../_charts/LineChart'
 import PieChart from '../_charts/PieChart'
-import { addSessionWeight } from '../../api/callerFunctions'
+import {
+  addSessionWeight,
+  getAllExerciseWeightInfo
+} from '../../api/callerFunctions'
 
 import { motion } from 'framer-motion'
 
 const BenchPress = () => {
   const [weight, setWeight] = useState('')
+  const [userInfo, setUserInfo] = useState([])
 
   const handleSubmit = (e) => {
     e.preventDefault()
     const formData = {
-      user: 11,
-      exercise: 12,
+      user: 24,
+      exercise: 17,
       exercise_weight: weight,
       sets: 0,
       reps_per_set: 0
@@ -22,6 +26,30 @@ const BenchPress = () => {
     console.log(formData)
     addSessionWeight(formData)
   }
+
+  useEffect(() => {
+    getAllExerciseWeightInfo().then((data) => {
+      setUserInfo(data)
+    })
+  }, [])
+
+  // console.log(userInfo)
+
+  const demoInfo = userInfo.filter((user) => user.user === 24)
+
+  const filteredExercise = demoInfo.filter(
+    (exerise) => exerise.exercise === 17
+  )
+
+  console.log('filtered', filteredExercise)
+
+  const dataArr = filteredExercise.map((data) => data.exercise_weight)
+
+  console.log(dataArr[1])
+
+  // const filteredUsers = userInfo.forEach((user) => console.log(user))
+
+  // console.log(filteredUsers)
 
   return (
     <div className='exercise-group-container'>
@@ -50,7 +78,18 @@ const BenchPress = () => {
       </div>
       <h2>Bench Press</h2>
       <div className='graph-container'>
-        <LineChart />
+        <LineChart
+          data={{
+            labels: ['s1', 's2', 's3', 's4', 's5', 's6', 's7'],
+            dataSets: {
+              label: 'session',
+              data: dataArr,
+              fill: false,
+              backgroundColor: 'rgb(81, 214, 203)',
+              borderColor: 'rgb(24, 247, 228,)'
+            }
+          }}
+        />
         <BarChart />
         <PieChart />
       </div>
