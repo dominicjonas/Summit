@@ -43,13 +43,13 @@ export const SidebarData = [
   },
   {
     title: 'Core',
-    path: '/core',
+    path: '/crunches',
     icon: <IoIosArrowForward />,
     className: 'nav-text'
   },
   {
     title: 'Cardio',
-    path: '/cardio',
+    path: '/running',
     icon: <IoIosArrowForward />,
     className: 'nav-text'
   },

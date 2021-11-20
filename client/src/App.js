@@ -21,9 +21,12 @@ import TricepPushdown from './components/arms/TricepPushdown'
 import Squat from './components/legs/Squat'
 import LegPress from './components/legs/LegPress'
 // * core
-import Core from './components/core/Core'
+import Crunches from './components/core/Crunches'
+import Plank from './components/core/Plank'
 // * cardio
-import Cardio from './components/cardio/Cardio'
+import Running from './components/cardio/Running'
+import Swimming from './components/cardio/Swimming'
+import Cycling from './components/cardio/Cycling'
 // * auth
 import Login from './components/_auth/Login'
 import Register from './components/_auth/Register'
@@ -52,9 +55,12 @@ const App = () => {
         <Route path='/squat' component={Squat} />
         <Route path='/legpress' component={LegPress} />
         {/* core */}
-        <Route path='/core' component={Core} />
+        <Route path='/crunches' component={Crunches} />
+        <Route path='/plank' component={Plank} />
         {/* cardio */}
-        <Route path='/cardio' component={Cardio} />
+        <Route path='/running' component={Running} />
+        <Route path='/swimming' component={Swimming} />
+        <Route path='/cycling' component={Cycling} />
         {/* auth */}
         <Route path='/login' component={Login} />
         <Route path='/register' component={Register} />

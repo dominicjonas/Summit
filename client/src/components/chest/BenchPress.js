@@ -61,8 +61,8 @@ const BenchPress = () => {
           onChange={(e) => setWeight(e.target.value)}
         />
         <button>submit</button>
-        <label>What is your lifting goal for next session?</label>
-        <input type='text' placeholder='Enter weight target' />
+        <label>What is your goal for next session?</label>
+        <input type='text' placeholder='Enter target' />
         <button>submit</button>
       </form>
     </div>
