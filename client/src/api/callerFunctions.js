@@ -11,8 +11,11 @@ export const getAllExerciseWeightInfo = async () => {
   return data
 }
 
-export const addSessionWeight = (exercise_weight) => {
-  return axios.post(`http://localhost:8000/exercise/api/`, exercise_weight)
+export const addSessionWeight = (formData) => {
+  return axios.post(
+    `https://summit2app.herokuapp.com/exercise/userlog/`,
+    formData
+  )
 }
 
 // AUTH METHODS

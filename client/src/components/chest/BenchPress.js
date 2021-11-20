@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom'
 import BarChart from '../_charts/BarChart'
 import LineChart from '../_charts/LineChart'
 import PieChart from '../_charts/PieChart'
+import { addSessionWeight } from '../../api/callerFunctions'
 
 import { motion } from 'framer-motion'
 
@@ -19,6 +20,7 @@ const BenchPress = () => {
       reps_per_set: 0
     }
     console.log(formData)
+    addSessionWeight(formData)
   }
 
   return (
