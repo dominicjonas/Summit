@@ -61,7 +61,10 @@ const Navbar = () => {
                 </li>
               )
             })}
-            <li className='nav-text' onClick={() => removeToken()}>
+            <li
+              className='nav-text logout-link'
+              onClick={() => removeToken()}
+            >
               <Link to='/login'>
                 <FiLogOut />
                 <span>Logout</span>
