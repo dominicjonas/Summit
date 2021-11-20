@@ -1,7 +1,7 @@
 import React from 'react'
 import { IoIosArrowForward } from 'react-icons/io'
 import { MdDashboard } from 'react-icons/md'
-import { FiLogIn, FiLogOut } from 'react-icons/fi'
+import { FiLogIn } from 'react-icons/fi'
 import { GoSignIn } from 'react-icons/go'
 
 export const SidebarData = [
@@ -57,12 +57,6 @@ export const SidebarData = [
     title: 'Login',
     path: '/login',
     icon: <FiLogIn />,
-    className: 'nav-text'
-  },
-  {
-    title: 'Logout',
-    path: '/login',
-    icon: <FiLogOut />,
     className: 'nav-text'
   },
   {

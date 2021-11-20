@@ -33,7 +33,7 @@ const Register = () => {
     try {
       // const res = await registerUser(registerData.formData)
       await axios.post(
-        'http://localhost:8000/exercise/register/',
+        'https://summit2app.herokuapp.com/exercise/register/',
         registerData.formData
       )
       history.push('/login')

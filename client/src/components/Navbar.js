@@ -1,9 +1,11 @@
 import React, { useState, useEffect, useRef } from 'react'
 import { Link } from 'react-router-dom'
+import { removeToken } from '../api/callerFunctions'
 import * as FaIcons from 'react-icons/fa'
 import { SidebarData } from './_data/navbarData'
 import { IconContext } from 'react-icons'
 import { VscClose } from 'react-icons/vsc'
+import { FiLogOut } from 'react-icons/fi'
 import logo from '../assets/logowhite.png'
 
 const Navbar = () => {
@@ -59,6 +61,15 @@ const Navbar = () => {
                 </li>
               )
             })}
+            <li
+              className='nav-text logout-link'
+              onClick={() => removeToken()}
+            >
+              <Link to='/login'>
+                <FiLogOut />
+                <span>Logout</span>
+              </Link>
+            </li>
           </ul>
         </nav>
       </IconContext.Provider>

@@ -27,3 +27,7 @@ export const addSessionWeight = (exercise_weight) => {
 //     formData
 //   )
 // }
+
+export const removeToken = () => {
+  return window.localStorage.removeItem('token')
+}

@@ -84,6 +84,10 @@ span {
   margin-right: 3.125rem;
 }
 
+.logout-link {
+  cursor: pointer;
+}
+
 .testing-container {
   display: flex;
   align-items: center;
