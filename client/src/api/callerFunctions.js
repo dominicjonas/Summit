@@ -3,7 +3,7 @@ import axios from 'axios'
 export const getAllExerciseWeightInfo = async () => {
   const options = {
     method: 'GET',
-    url: `http://localhost:8000/exercise/api/`
+    url: `https://summit2app.herokuapp.com/exercise/userlog/`
   }
 
   const { data } = await axios.request(options)

@@ -60,7 +60,7 @@ const Dashboard = () => {
       <h2>Weight Added on API: </h2>
   */}
       <div className='graph-container'>
-        <LineChart />
+        <LineChart data={[30, 45, 55, 50, 60, 65, 70, 80]} />
         <BarChart />
         <PieChart />
         <RadarChart />
