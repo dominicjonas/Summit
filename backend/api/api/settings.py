@@ -27,7 +27,13 @@ SECRET_KEY = 'django-insecure-!y%t++!46@ght6@ko-b#am1j!p)($ip89)@nh!#@^tqpv(1t$^
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = [
+    'summit2app.herokuapp.com',
+    'https://summit2app.herokuapp.com/',
+    '0.0.0.0',
+    'localhost',
+    '127.0.0.1',
+]
 
 
 # Application definition
@@ -53,7 +59,10 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    "whitenoise.middleware.WhiteNoiseMiddleware",
 ]
+
+STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 
 ROOT_URLCONF = 'api.urls'
 
@@ -89,10 +98,8 @@ DATABASES = {
 }
 
 CORS_ALLOWED_ORIGINS = [
+    'https://summit2app.herokuapp.com',
     'http://localhost:3001',
-    'http://localhost:8001',
-    "http://127.0.0.1:3001",
-    'http://127.0.0.1:8001',
 ]
 
 CORS_ALLOW_METHODS = [
