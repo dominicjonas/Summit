@@ -1,51 +1,51 @@
-import React, { useState, useEffect } from 'react'
-import { Link } from 'react-router-dom'
-import BarChart from '../_charts/BarChart'
-import LineChart from '../_charts/LineChart'
-import PieChart from '../_charts/PieChart'
+import React, { useState, useEffect } from 'react';
+import { Link } from 'react-router-dom';
+import BarChart from '../_charts/BarChart';
+import LineChart from '../_charts/LineChart';
+import PieChart from '../_charts/PieChart';
 import {
   addSessionWeight,
-  getAllExerciseWeightInfo
-} from '../../api/callerFunctions'
+  getAllExerciseWeightInfo,
+} from '../../api/callerFunctions';
 
-import { motion } from 'framer-motion'
+import { motion } from 'framer-motion';
 
 const CableFly = () => {
-  const [weight, setWeight] = useState('')
-  const [userInfo, setUserInfo] = useState([])
+  const [weight, setWeight] = useState('');
+  const [userInfo, setUserInfo] = useState([]);
 
   const handleSubmit = (e) => {
-    e.preventDefault()
+    e.preventDefault();
     const formData = {
       user: 24,
       exercise: 18,
       exercise_weight: weight,
       sets: 0,
-      reps_per_set: 0
-    }
-    console.log(formData)
-    addSessionWeight(formData)
-  }
+      reps_per_set: 0,
+    };
+    console.log(formData);
+    addSessionWeight(formData);
+  };
 
   useEffect(() => {
     getAllExerciseWeightInfo().then((data) => {
-      setUserInfo(data)
-    })
-  }, [])
+      setUserInfo(data);
+    });
+  }, []);
 
   // making array of exercise weights for this exercise
-  const demoInfo = userInfo.filter((user) => user.user === 24)
+  const demoInfo = userInfo.filter((user) => user.user === 24);
   const filteredExercise = demoInfo.filter(
-    (exerise) => exerise.exercise === 18
-  )
+    (exercise) => exercise.exercise === 18
+  );
 
-  const dataArr = filteredExercise.map((data) => data.exercise_weight)
+  const dataArr = filteredExercise.map((data) => data.exercise_weight);
 
   return (
-    <div className='exercise-group-container'>
+    <div className="exercise-group-container">
       <h1>Chest</h1>
-      <div className='exercise-links'>
-        <Link to='/benchpress'>
+      <div className="exercise-links">
+        <Link to="/benchpress">
           <motion.button
             whileHover={{ scale: 1.1 }}
             // having bg color on hover change creates blur, due to GPU acceleration
@@ -55,7 +55,7 @@ const CableFly = () => {
             Bench Press
           </motion.button>
         </Link>
-        <Link to='/cablefly'>
+        <Link to="/cablefly">
           <motion.button
             whileHover={{ scale: 1.1 }}
             // having bg color on hover change creates blur, due to GPU acceleration
@@ -67,26 +67,26 @@ const CableFly = () => {
         </Link>
       </div>
       <h2>Cable Fly</h2>
-      <div className='graph-container'>
+      <div className="graph-container">
         <LineChart data={dataArr} />
-        <BarChart />
+        <BarChart data={dataArr} />
         <PieChart />
       </div>
-      <form className='weight-input-container' onSubmit={handleSubmit}>
+      <form className="weight-input-container" onSubmit={handleSubmit}>
         <label>What was your personal best this session?</label>
         <input
-          type='text'
-          placeholder='Enter session weight'
+          type="text"
+          placeholder="Enter session weight"
           value={weight}
           onChange={(e) => setWeight(e.target.value)}
         />
         <button>submit</button>
         <label>What is your goal for next session?</label>
-        <input type='text' placeholder='Enter target' />
+        <input type="text" placeholder="Enter target" />
         <button>submit</button>
       </form>
     </div>
-  )
-}
+  );
+};
 
-export default CableFly
+export default CableFly;
