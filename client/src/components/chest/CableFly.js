@@ -11,13 +11,14 @@ import {
 import { motion } from 'framer-motion'
 
 const CableFly = () => {
+  const userID = localStorage.getItem('id')
   const [weight, setWeight] = useState('')
   const [userInfo, setUserInfo] = useState([])
 
   const handleSubmit = (e) => {
     e.preventDefault()
     const formData = {
-      user: 24,
+      user: userID,
       exercise: 18,
       exercise_weight: weight,
       sets: 0,
@@ -34,12 +35,14 @@ const CableFly = () => {
   }, [])
 
   // making array of exercise weights for this exercise
-  const demoInfo = userInfo.filter((user) => user.user === 24)
+  const demoInfo = userInfo.filter((user) => user.user == userID)
   const filteredExercise = demoInfo.filter(
     (exercise) => exercise.exercise === 18
   )
 
   const dataArr = filteredExercise.map((data) => data.exercise_weight)
+
+  console.log(demoInfo)
 
   return (
     <div className='exercise-group-container'>
