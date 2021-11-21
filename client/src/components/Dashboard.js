@@ -61,7 +61,7 @@ const Dashboard = () => {
   */}
       <div className='graph-container'>
         <LineChart data={[30, 45, 55, 50, 60, 65, 70, 80]} />
-        <BarChart />
+        <BarChart data={[30, 45, 55, 50, 60, 65, 70, 80]} />
         <PieChart />
         <RadarChart />
         <PolarChart />
