@@ -15,7 +15,6 @@ const buildData = (dataArr) => {
       }
     ]
   }
-  console.log(data)
   return data
 }
 
