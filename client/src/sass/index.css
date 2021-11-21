@@ -115,6 +115,14 @@ span {
   background: rgba(55, 55, 85, 0.329);
 }
 
+.userlog-card {
+  width: 80%;
+  margin: 1rem;
+  background: #eee;
+  color: black;
+  padding: 1rem;
+}
+
 .login-container {
   padding: 0rem 1.5625rem;
   min-width: 100vw;
@@ -296,32 +304,28 @@ a:active {
   font-size: 2rem;
 }
 .exercise-group-container .weight-input-container {
-  margin-top: 2rem;
+  position: relative;
+  margin-top: 3.125rem;
   display: flex;
   flex-direction: column;
 }
 @media (min-width: 40em) {
   .exercise-group-container .weight-input-container {
-    display: grid;
-    grid-template-columns: 21.875rem 15.625rem 6.25rem;
-    grid-template-rows: repeat(2, 1fr);
-    row-gap: 1rem;
-    place-content: center;
+    display: flex;
+    flex-direction: column;
   }
 }
 @media (min-width: 71.875em) {
   .exercise-group-container .weight-input-container {
-    display: grid;
-    grid-template-columns: 21.875rem 15.625rem 6.25rem;
-    grid-template-rows: repeat(2, 1fr);
-    row-gap: 1rem;
-    place-content: center;
+    display: flex;
+    flex-direction: column;
   }
 }
 .exercise-group-container .weight-input-container label {
   display: flex;
   align-items: center;
   padding: 0.2rem 0.5rem;
+  margin-top: 1.25rem;
   border: 0.0625rem solid var(--logo-teal-faint);
   color: var(--dark-text2);
 }
@@ -338,18 +342,24 @@ a:active {
   outline: none;
   box-shadow: rgba(123, 111, 130, 0.25) 0rem 3.375rem 3.4375rem, rgba(18, 118, 120, 0.269) 0rem -0.75rem 1.875rem, rgba(12, 188, 201, 0.12) 0rem 0.25rem 0.375rem, rgba(17, 135, 162, 0.42) 0rem 0.75rem 0.8125rem, rgba(32, 162, 191, 0.694) 0rem -0.1875rem 0.3125rem;
 }
-.exercise-group-container .weight-input-container button {
-  font-size: 1.5rem;
+.exercise-group-container .weight-input-container .exercise-form-button {
+  width: 100%;
+  grid-template-columns: 37.5rem;
+  display: block;
   background: transparent;
-  color: var(--dark-text2);
-  border: 0.0625rem solid var(--logo-teal-faint);
-  box-shadow: rgba(0, 0, 0, 0.15) 0.121875rem 0.121875rem 0.1625rem;
-  padding: 0.2rem 0.5rem;
+  color: var(--logo-teal);
+  font-size: clamp(1rem, 1.25vw, 1.25rem);
+  padding: 0.9rem 1.3rem;
+  margin: 1rem 0rem;
+  border: 0.0625rem solid var(--dark-accent);
+  border-radius: 0.3rem;
   cursor: pointer;
-  transition: 300ms all;
+  transition: 0.3s ease;
+  box-shadow: rgba(123, 111, 130, 0.25) 0rem 1.25rem 1.25rem, rgba(18, 118, 120, 0.269) 0rem -0.5rem 1.25rem, rgba(12, 188, 201, 0.12) 0rem 0.25rem 0.375rem, rgba(17, 135, 162, 0.42) 0rem 0.5rem 0.5625rem, rgba(32, 162, 191, 0.694) 0rem -0.1875rem 0.3125rem;
 }
-.exercise-group-container .weight-input-container button:hover {
-  background: var(--dark-card-hover);
+.exercise-group-container .weight-input-container .exercise-form-button:hover {
+  background: var(--dark-accent);
+  color: var(--dark-bg-primary);
 }
 
 :root {
