@@ -13,6 +13,7 @@ import { motion } from 'framer-motion'
 import UserlogCard from '../logs/UserlogCard'
 
 const BenchPress = () => {
+  const userID = localStorage.getItem('id')
   const [goal, setGoal] = useState('')
   const [weight, setWeight] = useState('')
   const [sets, setSets] = useState('')
@@ -22,13 +23,13 @@ const BenchPress = () => {
   const handleSubmit = (e) => {
     e.preventDefault()
     const formData = {
-      user: 24,
+      user: userID,
       exercise: 17,
       exercise_weight: weight,
       sets: sets,
       reps_per_set: reps
     }
-    console.log(formData)
+
     addSessionWeight(formData)
     setWeight('')
     setSets('')
@@ -42,13 +43,11 @@ const BenchPress = () => {
     })
   }, [])
 
-  const demoInfo = userInfo.filter((user) => user.user === 24)
+  const demoInfo = userInfo.filter((user) => user.user == userID)
   const filteredExercise = demoInfo.filter(
     (exercise) => exercise.exercise === 17
   )
   const dataArr = filteredExercise.map((data) => data.exercise_weight)
-
-  console.log(filteredExercise)
 
   return (
     <div className='exercise-group-container'>
