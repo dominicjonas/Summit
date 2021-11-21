@@ -1,0 +1,10 @@
+@use '../utils/functions' as *;
+@use '../utils/breakpoints' as *;
+
+.userlog-card {
+  width: 80%;
+  margin: 1rem;
+  background: #eee;
+  color: black;
+  padding: 1rem;
+}

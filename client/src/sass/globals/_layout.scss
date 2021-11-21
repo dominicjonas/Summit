@@ -35,29 +35,37 @@
     font-size: rem(32);
   }
   .weight-input-container {
-    margin-top: rem(32);
+    position: relative;
+    margin-top: rem(50);
     display: flex;
     flex-direction: column;
     @include breakpoint(medium) {
-      display: grid;
-      grid-template-columns: rem(350) rem(250) rem(100);
-      grid-template-rows: repeat(2, 1fr);
-      row-gap: rem(16);
-      place-content: center;
+      // display: grid;
+      // grid-template-columns: rem(350) rem(250);
+      // grid-template-rows: repeat(3, 1fr);
+      // // row-gap: rem(16);
+      // place-content: center;
+
+      display: flex;
+      flex-direction: column;
     }
 
     @include breakpoint(large) {
-      display: grid;
-      grid-template-columns: rem(350) rem(250) rem(100);
-      grid-template-rows: repeat(2, 1fr);
-      row-gap: rem(16);
-      place-content: center;
+      // display: grid;
+      // grid-template-columns: rem(350) rem(250);
+      // grid-template-rows: repeat(2, 1fr);
+      // // row-gap: rem(16);
+      // place-content: center;
+
+      display: flex;
+      flex-direction: column;
     }
 
     label {
       display: flex;
       align-items: center;
       padding: rem(3.2) rem(8);
+      margin-top: rem(20);
       border: rem(1) solid var(--logo-teal-faint);
       color: var(--dark-text2);
     }
@@ -78,17 +86,27 @@
           rgba(32, 162, 191, 0.694) rem(0) rem(-3) rem(5);
       }
     }
-    button {
-      font-size: rem(24);
+    .exercise-form-button {
+      width: 100%;
+      grid-template-columns: rem(600);
+      display: block;
       background: transparent;
-      color: var(--dark-text2);
-      border: rem(1) solid var(--logo-teal-faint);
-      box-shadow: rgba(0, 0, 0, 0.15) rem(1.95) rem(1.95) rem(2.6);
-      padding: rem(3.2) rem(8);
+      color: var(--logo-teal);
+      font-size: clamp(1rem, 1.25vw, 1.25rem);
+      padding: rem(14.4) rem(20.8);
+      margin: rem(16) rem(0);
+      border: rem(1) solid var(--dark-accent);
+      border-radius: rem(4.8);
       cursor: pointer;
-      transition: 300ms all;
+      transition: 0.3s ease;
+      box-shadow: rgba(123, 111, 130, 0.25) rem(0) rem(20) rem(20),
+        rgba(18, 118, 120, 0.269) rem(0) rem(-8) rem(20),
+        rgba(12, 188, 201, 0.12) rem(0) rem(4) rem(6),
+        rgba(17, 135, 162, 0.42) rem(0) rem(8) rem(9),
+        rgba(32, 162, 191, 0.694) rem(0) rem(-3) rem(5);
       &:hover {
-        background: var(--dark-card-hover);
+        background: var(--dark-accent);
+        color: var(--dark-bg-primary);
       }
     }
   }
