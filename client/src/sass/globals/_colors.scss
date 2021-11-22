@@ -14,12 +14,16 @@
   --toggle-bg-end: hsl(146, 68%, 55%);
   --toggle: hsl(230, 22%, 74%);
 
+  // card
+  --pb: hsla(64, 93%, 53%, 0.863);
+  --set: hsla(101, 93%, 53%, 0.863);
+  --rep: hsla(229, 93%, 53%, 0.87);
+
   //*dark theme
   --dark-bg-primary: hsl(228, 65%, 8%);
   --dark-bg-secondary: hsla(229, 57%, 11%, 0.925);
   --dark-top-bg: hsl(232, 19%, 15%);
   --dark-card: hsl(228, 28%, 20%);
-  --dark-text1: hsl(228, 34%, 66%);
   --dark-text2: hsl(0, 0%, 86%);
   --dark-card-hover: hsl(228, 25%, 27%);
 

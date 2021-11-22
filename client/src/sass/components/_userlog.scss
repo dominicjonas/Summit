@@ -47,17 +47,45 @@
   .date {
     display: flex;
     align-items: center;
-    font-size: rem(32);
+    font-size: clamp(1.5rem, 3vw, 2rem);
     border-bottom: 1px solid var(--logo-teal-faint);
-    padding: 0 0 rem(25) rem(25);
+    padding: 0 rem(25) rem(25) rem(25);
   }
   .userlog-card-weight-container {
     display: flex;
-    flex-direction: row;
-    justify-content: flex-start;
-    padding: 0 0 rem(25) rem(25);
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    @include breakpoint(medium) {
+      display: flex;
+      flex-direction: row;
+      justify-content: flex-start;
+      padding: 0 rem(25) rem(25) rem(25);
+    }
+    @include breakpoint(large) {
+      display: flex;
+      flex-direction: row;
+      justify-content: flex-start;
+      padding: 0 rem(25) rem(25) rem(25);
+    }
+
+    .card-pb {
+      color: var(--pb);
+    }
+    .card-set {
+      color: var(--set);
+    }
+    .card-rep {
+      color: var(--rep);
+    }
     p {
       font-size: rem(18);
+      color: var(--dark-accent);
+    }
+    span {
+      font-size: rem(22);
+      margin-left: rem(10);
     }
     .dot {
       display: flex;

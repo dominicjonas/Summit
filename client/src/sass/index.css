@@ -155,18 +155,48 @@ span {
 .userlog-card .date {
   display: flex;
   align-items: center;
-  font-size: 2rem;
+  font-size: clamp(1.5rem, 3vw, 2rem);
   border-bottom: 1px solid var(--logo-teal-faint);
-  padding: 0 0 1.5625rem 1.5625rem;
+  padding: 0 1.5625rem 1.5625rem 1.5625rem;
 }
 .userlog-card .userlog-card-weight-container {
   display: flex;
-  flex-direction: row;
-  justify-content: flex-start;
-  padding: 0 0 1.5625rem 1.5625rem;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+@media (min-width: 40em) {
+  .userlog-card .userlog-card-weight-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    padding: 0 1.5625rem 1.5625rem 1.5625rem;
+  }
+}
+@media (min-width: 71.875em) {
+  .userlog-card .userlog-card-weight-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    padding: 0 1.5625rem 1.5625rem 1.5625rem;
+  }
+}
+.userlog-card .userlog-card-weight-container .card-pb {
+  color: var(--pb);
+}
+.userlog-card .userlog-card-weight-container .card-set {
+  color: var(--set);
+}
+.userlog-card .userlog-card-weight-container .card-rep {
+  color: var(--rep);
 }
 .userlog-card .userlog-card-weight-container p {
   font-size: 1.125rem;
+  color: var(--dark-accent);
+}
+.userlog-card .userlog-card-weight-container span {
+  font-size: 1.375rem;
+  margin-left: 0.625rem;
 }
 .userlog-card .userlog-card-weight-container .dot {
   display: flex;
@@ -443,11 +473,13 @@ body {
   --toggle-bg-start: hsl(210, 78%, 56%);
   --toggle-bg-end: hsl(146, 68%, 55%);
   --toggle: hsl(230, 22%, 74%);
+  --pb: hsla(64, 93%, 53%, 0.863);
+  --set: hsla(101, 93%, 53%, 0.863);
+  --rep: hsla(229, 93%, 53%, 0.87);
   --dark-bg-primary: hsl(228, 65%, 8%);
   --dark-bg-secondary: hsla(229, 57%, 11%, 0.925);
   --dark-top-bg: hsl(232, 19%, 15%);
   --dark-card: hsl(228, 28%, 20%);
-  --dark-text1: hsl(228, 34%, 66%);
   --dark-text2: hsl(0, 0%, 86%);
   --dark-card-hover: hsl(228, 25%, 27%);
   --light-bg: hsl(0, 0%, 100%);

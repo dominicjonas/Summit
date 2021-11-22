@@ -7,11 +7,17 @@ const UserlogCard = ({ weight, sets, reps, date }) => {
     <div className='userlog-card'>
       <p className='date'>Session: {date}</p>
       <div className='userlog-card-weight-container'>
-        <p>Session Personal Best: {weight}kg</p>
+        <p>
+          Session PB: <span className='card-pb'>{weight}kg</span>
+        </p>
         <AiOutlineEllipsis className='dot' />
-        <p>sets: {sets}</p>
+        <p>
+          sets:<span className='card-set'>{sets}</span>
+        </p>
         <AiOutlineEllipsis className='dot' />
-        <p>reps: {reps}</p>
+        <p>
+          reps: <span className='card-rep'>{reps}</span>
+        </p>
       </div>
       <div className='remove-btn' onClick={() => removeTodo(index)}>
         <CgCloseR />
