@@ -4,7 +4,7 @@ import { Bar } from 'react-chartjs-2'
 
 const buildBarChartData = (dataArr) => {
   const data = {
-    labels: ['Red', 'Blue', 'Yellow', 'Green', 'Purple', 'Orange'],
+    labels: ['S1', 'S2', 'S3', 'S4', 'S5', 'S6'],
     datasets: [
       {
         label: 'weight',
