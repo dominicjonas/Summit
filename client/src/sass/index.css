@@ -158,6 +158,7 @@ span {
   font-size: clamp(1.5rem, 3vw, 2rem);
   border-bottom: 1px solid var(--logo-teal-faint);
   padding: 0 1.5625rem 1.5625rem 1.5625rem;
+  color: var(--date);
 }
 .userlog-card .userlog-card-weight-container {
   display: flex;
@@ -465,16 +466,11 @@ body {
 :root {
   --logo-teal: hsl(175, 62%, 57%);
   --logo-teal-faint: hsla(175, 62%, 57%, 0.603);
-  --toggle-bg-start: hsl(210, 78%, 56%);
-  --toggle-bg-end: hsl(146, 68%, 55%);
-  --toggle: hsl(230, 22%, 74%);
   --dark-accent: hsl(175, 93%, 53%);
   --dark-accent-faint: hsla(175, 93%, 53%, 0.253);
-  --toggle-bg-start: hsl(210, 78%, 56%);
-  --toggle-bg-end: hsl(146, 68%, 55%);
-  --toggle: hsl(230, 22%, 74%);
+  --date: hsla(175, 93%, 53%, 0.733);
   --pb: hsla(64, 93%, 53%, 0.863);
-  --set: hsla(101, 93%, 53%, 0.863);
+  --set: hhsla(175, 62%, 57%, 0.788);
   --rep: hsla(229, 93%, 53%, 0.87);
   --dark-bg-primary: hsl(228, 65%, 8%);
   --dark-bg-secondary: hsla(229, 57%, 11%, 0.925);

@@ -50,6 +50,7 @@
     font-size: clamp(1.5rem, 3vw, 2rem);
     border-bottom: 1px solid var(--logo-teal-faint);
     padding: 0 rem(25) rem(25) rem(25);
+    color: var(--date);
   }
   .userlog-card-weight-container {
     display: flex;
