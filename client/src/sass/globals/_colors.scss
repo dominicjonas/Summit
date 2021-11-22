@@ -5,11 +5,14 @@
   --dark-accent: hsl(175, 93%, 53%);
   --dark-accent-faint: hsla(175, 93%, 53%, 0.253);
 
-  // card
+  //* card
   --date: hsla(175, 93%, 53%, 0.733);
   --pb: hsla(64, 93%, 53%, 0.863);
   --set: hsla(115, 78%, 52%, 0.788);
   --rep: hsla(229, 93%, 53%, 0.87);
+
+  //* login hero
+  --bg-grad: linear-gradient(hsl(228, 65%, 8%), hsl(175, 93%, 53%));
 
   //*dark theme
   --dark-bg-primary: hsl(228, 65%, 8%);
