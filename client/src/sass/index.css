@@ -1,5 +1,6 @@
 .navbar {
   position: sticky;
+  z-index: 999;
   top: 0;
   background-color: #14182e;
   height: 5rem;
@@ -115,12 +116,70 @@ span {
   background: rgba(55, 55, 85, 0.329);
 }
 
+.userlogs-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 80vw;
+}
+.userlogs-container .userlogs-header {
+  text-align: left;
+  color: var(--logo-teal);
+  font-size: 2rem;
+  font-weight: 200;
+  font-family: var(--font-poppins);
+  justify-content: left;
+  align-items: flex-start;
+  margin: 3.125rem 0;
+  transition: 500ms ease;
+}
+.userlogs-container .userlogs-header:hover {
+  box-shadow: rgba(46, 240, 240, 0.4) 0px 5px, rgba(46, 195, 240, 0.3) 0px 10px, rgba(46, 227, 240, 0.2) 0px 15px, rgba(46, 240, 240, 0.1) 0px 20px, rgba(46, 240, 240, 0.05) 0px 25px;
+}
+
 .userlog-card {
+  position: relative;
   width: 80%;
-  margin: 1rem;
-  background: #eee;
-  color: black;
-  padding: 1rem;
+  background: transparent;
+  color: var(--logo-teal);
+  border: 1px solid var(--logo-teal-faint);
+  margin-bottom: 2rem;
+  border-radius: 0.3125rem;
+  cursor: pointer;
+  transition: all 350ms ease;
+}
+.userlog-card:hover {
+  background: var(--dark-card-hover);
+  box-shadow: rgba(46, 240, 224, 0.4) -5px 5px, rgba(46, 227, 240, 0.3) -10px 10px, rgba(46, 201, 240, 0.2) -15px 15px, rgba(46, 233, 240, 0.1) -20px 20px, rgba(46, 217, 240, 0.05) -25px 25px;
+}
+.userlog-card .date {
+  display: flex;
+  align-items: center;
+  font-size: 2rem;
+  border-bottom: 1px solid var(--logo-teal-faint);
+  padding: 0 0 1.5625rem 1.5625rem;
+}
+.userlog-card .userlog-card-weight-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  padding: 0 0 1.5625rem 1.5625rem;
+}
+.userlog-card .userlog-card-weight-container p {
+  font-size: 1.125rem;
+}
+.userlog-card .userlog-card-weight-container .dot {
+  display: flex;
+  align-items: center;
+  margin: auto 1.25rem;
+  font-size: 2rem;
+}
+.userlog-card .remove-btn {
+  position: absolute;
+  top: -3px;
+  right: -3px;
+  border: none;
+  font-size: 2rem;
 }
 
 .login-container {
