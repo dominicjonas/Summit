@@ -16,7 +16,6 @@ const Login = () => {
       password: ''
     }
   })
-  const [id, setId] = useState('')
 
   const handleChange = (e) => {
     const formData = {
@@ -41,9 +40,9 @@ const Login = () => {
       )
       console.log('data is: ', data)
       setTokenToLocalStorage(data.token)
-      setId(data)
 
       localStorage.setItem('id', data.userId)
+      console.log('logged in user id: ', data.userId)
 
       history.push('/')
     } catch (err) {

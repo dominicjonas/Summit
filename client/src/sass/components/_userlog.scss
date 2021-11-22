@@ -1,10 +1,108 @@
 @use '../utils/functions' as *;
 @use '../utils/breakpoints' as *;
 
+.userlogs-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 80vw;
+  .userlogs-header {
+    text-align: left;
+    color: var(--logo-teal);
+    font-size: 2rem;
+    font-weight: 200;
+    font-family: var(--font-poppins);
+    justify-content: left;
+    align-items: flex-start;
+    margin: rem(50) 0;
+    transition: 500ms ease;
+    &:hover {
+      box-shadow: rgba(46, 240, 240, 0.4) 0px 5px,
+        rgba(46, 195, 240, 0.3) 0px 10px, rgba(46, 227, 240, 0.2) 0px 15px,
+        rgba(46, 240, 240, 0.1) 0px 20px, rgba(46, 240, 240, 0.05) 0px 25px;
+    }
+    // border-bottom: 1px solid var(--logo-teal-faint);
+  }
+}
+
 .userlog-card {
+  position: relative;
   width: 80%;
-  margin: 1rem;
-  background: #eee;
-  color: black;
-  padding: 1rem;
+  background: transparent;
+  color: var(--logo-teal);
+  border: 1px solid var(--logo-teal-faint);
+  margin-bottom: rem(32);
+  border-radius: rem(5);
+  cursor: pointer;
+  transition: all 350ms ease;
+  &:hover {
+    background: var(--dark-card-hover);
+    box-shadow: rgba(46, 240, 224, 0.4) -5px 5px,
+      rgba(46, 227, 240, 0.3) -10px 10px,
+      rgba(46, 201, 240, 0.2) -15px 15px,
+      rgba(46, 233, 240, 0.1) -20px 20px,
+      rgba(46, 217, 240, 0.05) -25px 25px;
+  }
+  .card-date,
+  .card-time {
+    color: var(--dark-accent);
+  }
+  .date {
+    display: flex;
+    align-items: center;
+    font-size: clamp(1.5rem, 3vw, 2rem);
+    border-bottom: 1px solid var(--logo-teal-faint);
+    padding: 0 rem(25) rem(25) rem(25);
+    color: var(--date);
+  }
+  .userlog-card-weight-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    @include breakpoint(medium) {
+      display: flex;
+      flex-direction: row;
+      justify-content: flex-start;
+      padding: 0 rem(25) rem(25) rem(25);
+    }
+    @include breakpoint(large) {
+      display: flex;
+      flex-direction: row;
+      justify-content: flex-start;
+      padding: 0 rem(25) rem(25) rem(25);
+    }
+
+    .card-pb {
+      color: var(--pb);
+    }
+    .card-set {
+      color: var(--set);
+    }
+    .card-rep {
+      color: var(--rep);
+    }
+    p {
+      font-size: rem(18);
+      color: var(--dark-accent);
+    }
+    span {
+      font-size: rem(22);
+      margin-left: rem(10);
+    }
+    .dot {
+      display: flex;
+      align-items: center;
+      margin: auto rem(20);
+      font-size: rem(32);
+    }
+  }
+  .remove-btn {
+    position: absolute;
+    top: -3px;
+    right: -3px;
+    border: none;
+    font-size: 2rem;
+  }
 }

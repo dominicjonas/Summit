@@ -2,6 +2,7 @@
 
 .navbar {
   position: sticky;
+  z-index: 999;
   top: 0;
   background-color: rgb(20, 24, 46);
   height: rem(80);

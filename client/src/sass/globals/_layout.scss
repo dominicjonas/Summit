@@ -40,23 +40,11 @@
     display: flex;
     flex-direction: column;
     @include breakpoint(medium) {
-      // display: grid;
-      // grid-template-columns: rem(350) rem(250);
-      // grid-template-rows: repeat(3, 1fr);
-      // // row-gap: rem(16);
-      // place-content: center;
-
       display: flex;
       flex-direction: column;
     }
 
     @include breakpoint(large) {
-      // display: grid;
-      // grid-template-columns: rem(350) rem(250);
-      // grid-template-rows: repeat(2, 1fr);
-      // // row-gap: rem(16);
-      // place-content: center;
-
       display: flex;
       flex-direction: column;
     }
