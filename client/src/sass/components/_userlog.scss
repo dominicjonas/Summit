@@ -31,7 +31,7 @@
   background: transparent;
   color: var(--logo-teal);
   border: 1px solid var(--logo-teal-faint);
-  margin-bottom: rem(32);
+  margin-bottom: rem(25);
   border-radius: rem(5);
   cursor: pointer;
   transition: all 350ms ease;
@@ -50,9 +50,10 @@
   .date {
     display: flex;
     align-items: center;
-    font-size: clamp(1.5rem, 3vw, 2rem);
-    border-bottom: 1px solid var(--logo-teal-faint);
-    padding: 0 rem(25) rem(25) rem(25);
+    justify-content: center;
+    font-size: clamp(1.1rem, 2vw, 1.6rem);
+
+    padding: 0 rem(15) rem(10) rem(15);
     color: var(--date);
   }
   .userlog-card-weight-container {
@@ -60,18 +61,19 @@
     flex-direction: column;
     align-items: center;
     justify-content: center;
+    border-top: 1px solid var(--logo-teal-faint);
 
     @include breakpoint(medium) {
       display: flex;
       flex-direction: row;
-      justify-content: flex-start;
-      padding: 0 rem(25) rem(25) rem(25);
+      justify-content: center;
+      padding: rem(15) rem(0);
     }
     @include breakpoint(large) {
       display: flex;
       flex-direction: row;
-      justify-content: flex-start;
-      padding: 0 rem(25) rem(25) rem(25);
+      justify-content: center;
+      padding: rem(15) rem(0);
     }
 
     .card-pb {

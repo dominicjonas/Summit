@@ -3,8 +3,9 @@
 html {
   // this helps with accessibility. user is able to adjust fontsize in their browser
   font-size: 100%;
-
+  scroll-behavior: smooth;
   box-sizing: border-box;
+  scroll-margin-top: 0;
 }
 
 *,

@@ -77,6 +77,7 @@
     display: flex;
     flex-direction: column;
     align-items: center;
+    color: var(--logo-teal);
 
     .arrow-1 {
       font-size: rem(32);
@@ -99,5 +100,45 @@
   transition: color 0.2s ease;
   &:hover {
     color: var(--logo-teal);
+  }
+}
+
+.summit-hero-container {
+  background: var(--bg-grad);
+  color: var(--dark-text2);
+}
+
+.summit-hero-1,
+.summit-hero-2,
+.summit-hero-3 {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  .up-down-icon {
+    font-size: 2.5rem;
+    cursor: pointer;
+    color: var(--dark-text2);
+  }
+  h1 {
+    margin: 2rem 0;
+  }
+}
+
+.summit-hero-4 {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  color: var(--dark-bg-primary);
+  .up-down-icon {
+    font-size: 2.5rem;
+    cursor: pointer;
+    color: var(--dark-bg-primary);
+  }
+  h1 {
+    margin: 2rem 0;
   }
 }

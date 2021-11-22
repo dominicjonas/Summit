@@ -3,6 +3,7 @@ import { CgCloseR } from 'react-icons/cg'
 import { AiOutlineEllipsis } from 'react-icons/ai'
 
 const UserlogCard = ({ weight, sets, reps, date }) => {
+  console.log(date)
   const formattedDate = date.split('').splice(0, 10).join('')
   const formattedTime = date.split('').splice(11, 8).join('')
 
