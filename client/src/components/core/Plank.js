@@ -10,21 +10,30 @@ import {
 
 import { motion } from 'framer-motion';
 
+import UserlogCard from '../logs/UserlogCard';
+
 const Plank = () => {
+  const userID = localStorage.getItem('id');
+  const [goal, setGoal] = useState('');
   const [weight, setWeight] = useState('');
+  const [sets, setSets] = useState('');
+  const [reps, setReps] = useState('');
   const [userInfo, setUserInfo] = useState([]);
 
   const handleSubmit = (e) => {
     e.preventDefault();
     const formData = {
-      user: 24,
+      user: userID,
       exercise: 28,
       exercise_weight: weight,
-      sets: 0,
-      reps_per_set: 0,
+      sets: sets,
+      reps_per_set: reps,
     };
-    console.log(formData);
     addSessionWeight(formData);
+    setWeight('');
+    setSets('');
+    setReps('');
+    setGoal('');
   };
 
   useEffect(() => {
@@ -33,7 +42,7 @@ const Plank = () => {
     });
   }, []);
 
-  const demoInfo = userInfo.filter((user) => user.user === 24);
+  const demoInfo = userInfo.filter((user) => user.user == userID);
   const filteredExercise = demoInfo.filter(
     (exercise) => exercise.exercise === 28
   );
@@ -71,18 +80,48 @@ const Plank = () => {
         <PieChart />
       </div>
       <form className="weight-input-container" onSubmit={handleSubmit}>
-        <label>What was your personal best this session?</label>
+        <label>What is your goal for next session?</label>
         <input
           type="text"
-          placeholder="Enter session weight"
+          placeholder="Enter weight goal"
+          value={goal}
+          onChange={(e) => setGoal(e.target.value)}
+        />
+
+        <label>What is your heaviest weight this session?</label>
+        <input
+          type="text"
+          placeholder="Enter weight"
           value={weight}
           onChange={(e) => setWeight(e.target.value)}
         />
-        <button>submit</button>
-        <label>What is your goal for next session?</label>
-        <input type="text" placeholder="Enter target" />
-        <button>submit</button>
+
+        <label>Number of sets at heaviest weight?</label>
+        <input
+          type="text"
+          placeholder="Enter sets"
+          value={sets}
+          onChange={(e) => setSets(e.target.value)}
+        />
+
+        <label>Number of reps at heaviest weight?</label>
+        <input
+          type="text"
+          placeholder="Enter reps"
+          value={reps}
+          onChange={(e) => setReps(e.target.value)}
+        />
+        <button className="exercise-form-button">SUBMIT</button>
       </form>
+      {filteredExercise.map((userlog) => (
+        <UserlogCard
+          key={userlog.id}
+          weight={userlog.exercise_weight}
+          sets={userlog.sets}
+          reps={userlog.reps_per_set}
+          date={userlog.date_completed}
+        />
+      ))}
     </div>
   );
 };
