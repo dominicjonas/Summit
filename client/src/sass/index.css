@@ -152,6 +152,10 @@ span {
   background: var(--dark-card-hover);
   box-shadow: rgba(46, 240, 224, 0.4) -5px 5px, rgba(46, 227, 240, 0.3) -10px 10px, rgba(46, 201, 240, 0.2) -15px 15px, rgba(46, 233, 240, 0.1) -20px 20px, rgba(46, 217, 240, 0.05) -25px 25px;
 }
+.userlog-card .card-date,
+.userlog-card .card-time {
+  color: var(--dark-accent);
+}
 .userlog-card .date {
   display: flex;
   align-items: center;
@@ -470,7 +474,7 @@ body {
   --dark-accent-faint: hsla(175, 93%, 53%, 0.253);
   --date: hsla(175, 93%, 53%, 0.733);
   --pb: hsla(64, 93%, 53%, 0.863);
-  --set: hhsla(175, 62%, 57%, 0.788);
+  --set: hsla(115, 78%, 52%, 0.788);
   --rep: hsla(229, 93%, 53%, 0.87);
   --dark-bg-primary: hsl(228, 65%, 8%);
   --dark-bg-secondary: hsla(229, 57%, 11%, 0.925);

@@ -43,7 +43,10 @@
       rgba(46, 233, 240, 0.1) -20px 20px,
       rgba(46, 217, 240, 0.05) -25px 25px;
   }
-
+  .card-date,
+  .card-time {
+    color: var(--dark-accent);
+  }
   .date {
     display: flex;
     align-items: center;
