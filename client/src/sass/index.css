@@ -347,20 +347,22 @@ span {
 .summit-hero-3 .up-down-icon {
   font-size: 2.5rem;
   cursor: pointer;
-  color: var(--dark-text2);
+  color: var(--dark-accent-faint);
 }
 .summit-hero-1 .summit-hero-text-container,
 .summit-hero-2 .summit-hero-text-container,
 .summit-hero-3 .summit-hero-text-container {
+  position: relative;
   display: flex;
   justify-content: center;
   align-items: center;
   flex-direction: column;
-  padding: 1.25rem;
+  padding: 2.5rem;
+  outline: 1px solid var(--dark-accent-faint);
 }
-.summit-hero-1 h1,
-.summit-hero-2 h1,
-.summit-hero-3 h1 {
+.summit-hero-1 .summit-hero-text-container h1,
+.summit-hero-2 .summit-hero-text-container h1,
+.summit-hero-3 .summit-hero-text-container h1 {
   font-family: var(--font-poppins);
   background-image: var(--bg-grad-contact);
   -webkit-background-clip: text;
@@ -369,10 +371,32 @@ span {
   animation: gradanim 5s infinite alternate;
   margin-bottom: 0;
 }
-.summit-hero-1 p,
-.summit-hero-2 p,
-.summit-hero-3 p {
+.summit-hero-1 .summit-hero-text-container p,
+.summit-hero-2 .summit-hero-text-container p,
+.summit-hero-3 .summit-hero-text-container p {
   font-size: 1rem;
+}
+.summit-hero-1 .summit-hero-text-container .arrows,
+.summit-hero-2 .summit-hero-text-container .arrows,
+.summit-hero-3 .summit-hero-text-container .arrows {
+  position: relative;
+  width: 100vw;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  color: var(--logo-teal);
+  margin: 0.9375rem 0 0 0;
+}
+.summit-hero-1 .summit-hero-text-container .arrows .arrow-1,
+.summit-hero-2 .summit-hero-text-container .arrows .arrow-1,
+.summit-hero-3 .summit-hero-text-container .arrows .arrow-1 {
+  font-size: 2rem;
+  position: absolute;
+}
+.summit-hero-1 .summit-hero-text-container .arrows .arrow-2,
+.summit-hero-2 .summit-hero-text-container .arrows .arrow-2,
+.summit-hero-3 .summit-hero-text-container .arrows .arrow-2 {
+  font-size: 4rem;
 }
 
 .contact-container {

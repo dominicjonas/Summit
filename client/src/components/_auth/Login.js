@@ -163,52 +163,69 @@ const Login = () => {
 
       <div className='summit-hero-container'>
         <section id='summit-hero-1' className='summit-hero-1'>
-          <a href='#login'>
-            <CgArrowUpR className='up-down-icon' />
-          </a>
           <div className='summit-hero-text-container'>
+            <a href='#login' className='top-link'>
+              <div className='arrows'>
+                <IoIosArrowUp className='arrow-1' />
+                <IoIosArrowUp className='arrow-2' />
+              </div>
+            </a>
             <h1>What is Summit?</h1>
             <p>
               Summit is a place to track and see all your stats in and out
               the gym
             </p>
+            <a href='#summit-hero-2' className='bottom-link'>
+              <div className='arrows'>
+                <IoIosArrowDown className='arrow-1' />
+                <IoIosArrowDown className='arrow-2' />
+              </div>
+            </a>
           </div>
-          <a href='#summit-hero-2'>
-            <CgArrowDownR className='up-down-icon' />
-          </a>
         </section>
 
         <section id='summit-hero-2' className='summit-hero-2'>
-          <a href='#summit-hero-1'>
-            <CgArrowUpR className='up-down-icon' />
-          </a>
           <div className='summit-hero-text-container'>
-            <h1>How is summit?</h1>
+            <a href='#summit-hero-1' className='top-link'>
+              <div className='arrows'>
+                <IoIosArrowUp className='arrow-1' />
+                <IoIosArrowUp className='arrow-2' />
+              </div>
+            </a>
+            <h1>How is Summit?</h1>
             <p>
               How is it at the top? the view is pretty sweet, join us and
-              reach your summit..
+              reach your summit
             </p>
+            <a href='#summit-hero-3' className='bottom-link'>
+              <div className='arrows'>
+                <IoIosArrowDown className='arrow-1' />
+                <IoIosArrowDown className='arrow-2' />
+              </div>
+            </a>
           </div>
-          <a href='#summit-hero-3'>
-            <CgArrowDownR className='up-down-icon' />
-          </a>
         </section>
 
         <section id='summit-hero-3' className='summit-hero-3'>
-          <a href='#summit-hero-2'>
-            <CgArrowUpR className='up-down-icon' />
-          </a>
           <div className='summit-hero-text-container'>
-            <h1>Why is summit?</h1>
+            <a href='#summit-hero-2' className='top-link'>
+              <div className='arrows'>
+                <IoIosArrowUp className='arrow-1' />
+                <IoIosArrowUp className='arrow-2' />
+              </div>
+            </a>
+            <h1>Why is Summit?</h1>
             <p>
               Summit can help you reach your goals, compete with your
               friends and track your progress over time
             </p>
+            <a href='#contact' className='bottom-link'>
+              <div className='arrows'>
+                <IoIosArrowDown className='arrow-1' />
+                <IoIosArrowDown className='arrow-2' />
+              </div>
+            </a>
           </div>
-
-          <a href='#contact'>
-            <CgArrowDownR className='up-down-icon' />
-          </a>
         </section>
 
         {/* CONTACT FORM */}
