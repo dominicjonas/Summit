@@ -142,3 +142,119 @@
     margin: 2rem 0;
   }
 }
+
+//* Contact form
+
+.contact-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  text-align: center;
+  min-height: 100vh;
+
+  color: black;
+  .contact-header {
+    .title {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: var(--font-inter);
+      font-size: rem(50);
+      color: var(--dark-bg-primary);
+      h1 {
+        margin-bottom: 0;
+      }
+    }
+
+    p {
+      font-family: Arial, Helvetica, sans-serif;
+      color: var(--dark-bg-primary);
+      font-size: clamp(1rem, 1.25vw, 1.25rem);
+      font-weight: 300;
+      margin: 1em 0;
+    }
+  }
+  .form-container {
+    // outline: 1px solid rgb(222, 222, 222);
+    background: transparent;
+    box-shadow: rgba(7, 66, 63, 0.404) -5px 5px,
+      rgba(10, 88, 85, 0.3) -10px 10px, rgba(31, 163, 152, 0.2) -15px 15px,
+      rgba(46, 233, 240, 0.1) -20px 20px,
+      rgba(46, 227, 240, 0.05) -25px 25px;
+    border-radius: 0.3em;
+    outline: 1px solid rgba(0, 128, 128, 0.39);
+    padding: 1em;
+    width: 40rem;
+    transition: 300ms ease;
+    .form-input-name-container,
+    .form-input-email-container,
+    .form-input-textarea-container {
+      display: flex;
+      flex-direction: column;
+      text-align: left;
+      width: 100%;
+      font-family: var(--font-poppins);
+      label {
+        margin-bottom: 0.1em;
+        color: var(--dark-bg-primary);
+      }
+      input {
+        background: rgba(255, 255, 255, 0.4);
+        // background: transparent;
+        color: var(--dark-bg-primary);
+        padding: 0.7em 0.4em;
+        margin-bottom: 1em;
+        font-size: 1.1em;
+        border: none;
+        // outline: 1px solid rgba(90, 212, 221, 0.767);
+        border-radius: rem(4);
+      }
+    }
+    .recaptcha {
+      margin: 1em 0;
+    }
+    button {
+      width: 100%;
+      display: inline-block;
+      font-family: Arial, Helvetica, sans-serif;
+      background: var(--dark-bg-primary);
+      color: var(--logo-teal);
+      font-size: clamp(1rem, 1.25vw, 1.25rem);
+      padding: 0.9em 1.3em;
+      margin: 1em 0;
+      border: 1px solid var(--dark-bg-primary);
+      border-radius: 0.3em;
+      cursor: pointer;
+      transition: 0.3s ease;
+      box-shadow: rgba(123, 111, 130, 0.25) 0px 54px 55px,
+        rgba(18, 118, 120, 0.269) 0px -12px 30px,
+        rgba(12, 188, 201, 0.12) 0px 4px 6px,
+        rgba(17, 135, 162, 0.42) 0px 12px 13px,
+        rgba(32, 162, 191, 0.694) 0px -3px 5px;
+      &:hover {
+        background: var(--dark-accent);
+        color: var(--dark-bg-primary);
+      }
+    }
+  }
+
+  .submit-message {
+    font-size: rem(24);
+    font-family: var(--font-poppins);
+    background-image: var(--bg-grad-contact);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-size: 300%;
+    animation: gradanim 5s infinite alternate;
+  }
+}
+
+@keyframes gradanim {
+  0% {
+    background-position: right;
+  }
+  100% {
+    background-position: left;
+  }
+}
