@@ -131,26 +131,45 @@
   .up-down-icon {
     font-size: 2.5rem;
     cursor: pointer;
-    color: var(--dark-text2);
+    color: var(--dark-accent-faint);
   }
   .summit-hero-text-container {
+    position: relative;
     display: flex;
     justify-content: center;
     align-items: center;
     flex-direction: column;
-    padding: rem(20);
-  }
-  h1 {
-    font-family: var(--font-poppins);
-    background-image: var(--bg-grad-contact);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-size: 300%;
-    animation: gradanim 5s infinite alternate;
-    margin-bottom: 0;
-  }
-  p {
-    font-size: rem(16);
+    padding: rem(40);
+    outline: 1px solid var(--dark-accent-faint);
+    h1 {
+      font-family: var(--font-poppins);
+      background-image: var(--bg-grad-contact);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-size: 300%;
+      animation: gradanim 5s infinite alternate;
+      margin-bottom: 0;
+    }
+    p {
+      font-size: rem(16);
+    }
+
+    .arrows {
+      position: relative;
+      width: 100vw;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      color: var(--logo-teal);
+      margin: rem(15) 0 0 0;
+      .arrow-1 {
+        font-size: rem(32);
+        position: absolute;
+      }
+      .arrow-2 {
+        font-size: rem(64);
+      }
+    }
   }
 }
 
