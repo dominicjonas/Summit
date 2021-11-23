@@ -13,11 +13,21 @@
   background: var(--dark-bg-primary);
   color: var(--dark-text2);
 
+  @include breakpoint(large) {
+    padding: rem(16);
+    padding: rem(0) rem(25);
+  }
+
   .logo-container {
     margin-top: rem(32);
     img {
-      width: rem(300);
-      height: rem(300);
+      width: rem(150);
+      height: rem(150);
+
+      @include breakpoint(xlarge) {
+        width: rem(200);
+        height: rem(200);
+      }
     }
   }
   form {
@@ -117,6 +127,7 @@
   flex-direction: column;
   align-items: center;
   justify-content: center;
+  text-align: center;
   .up-down-icon {
     font-size: 2.5rem;
     cursor: pointer;
@@ -159,11 +170,12 @@
       align-items: center;
       justify-content: center;
       font-family: var(--font-inter);
-      font-size: rem(50);
+      font-size: rem(30);
       color: var(--dark-text2);
 
       h1 {
         margin-bottom: 0;
+        font-size: rem(35);
       }
     }
 
@@ -172,7 +184,7 @@
       color: var(--dark-bg-primary);
       font-size: clamp(1rem, 1.25vw, 1.25rem);
       font-weight: 300;
-      margin: 1em 0;
+      margin: rem(5) 0;
     }
   }
   .form-container {
@@ -183,11 +195,11 @@
       rgba(46, 227, 240, 0.05) -25px 25px;
     border-radius: 0.3em;
     outline: 1px solid rgba(0, 128, 128, 0.39);
-    padding: 1em;
-    width: 25rem;
+    padding: rem(8);
+    width: rem(400);
     transition: 300ms ease;
     @include breakpoint(large) {
-      width: 35rem;
+      width: rem(600);
     }
     .form-input-name-container,
     .form-input-email-container,
@@ -209,8 +221,8 @@
         background: rgba(255, 255, 255, 0.4);
         // background: transparent;
         color: var(--dark-bg-primary);
-        padding: 0.7em 0.4em;
-        margin-bottom: 1em;
+        padding: rem(8) rem(4);
+        margin-bottom: rem(4);
         font-size: 1.1em;
         border: none;
         // outline: 1px solid rgba(90, 212, 221, 0.767);
@@ -227,7 +239,7 @@
       background: transparent;
       color: var(--dark-bg-primary);
       font-size: clamp(1rem, 1.25vw, 1.25rem);
-      padding: 0.9em 1.3em;
+      padding: rem(15) rem(0);
       margin: 1em 0;
       border: 1px solid rgba(0, 128, 128, 0.473);
       border-radius: 0.3em;
@@ -249,7 +261,7 @@
     flex-direction: column;
     align-items: center;
     color: var(--dark-bg-primary);
-    margin-top: rem(25);
+    margin: rem(15) 0 0 0;
     .arrow-1 {
       font-size: rem(32);
       position: absolute;
@@ -260,7 +272,7 @@
   }
 
   .submit-message {
-    font-size: rem(24);
+    font-size: rem(20);
     font-family: var(--font-poppins);
     background-image: var(--bg-grad-contact);
     -webkit-background-clip: text;
