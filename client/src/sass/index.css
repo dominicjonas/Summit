@@ -375,6 +375,7 @@ span {
 .summit-hero-2 .summit-hero-text-container p,
 .summit-hero-3 .summit-hero-text-container p {
   font-size: 1rem;
+  margin: 0 2.1875rem;
 }
 .summit-hero-1 .summit-hero-text-container .arrows,
 .summit-hero-2 .summit-hero-text-container .arrows,

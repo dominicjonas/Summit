@@ -141,6 +141,7 @@
     flex-direction: column;
     padding: rem(40);
     outline: 1px solid var(--dark-accent-faint);
+
     h1 {
       font-family: var(--font-poppins);
       background-image: var(--bg-grad-contact);
@@ -152,6 +153,7 @@
     }
     p {
       font-size: rem(16);
+      margin: 0 rem(35);
     }
 
     .arrows {
