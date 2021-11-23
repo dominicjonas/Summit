@@ -3,7 +3,7 @@ import { Link, useHistory } from 'react-router-dom'
 // import { loginUser } from '../api/callerFunctions'
 
 import logo from '../../assets/logo.png'
-import { IoIosArrowDown } from 'react-icons/io'
+import { IoIosArrowDown, IoIosArrowUp } from 'react-icons/io'
 import { AiOutlineHome } from 'react-icons/ai'
 import { CgArrowDownR, CgArrowUpR } from 'react-icons/cg'
 import { RiMessage2Line } from 'react-icons/ri'
@@ -166,7 +166,13 @@ const Login = () => {
           <a href='#login'>
             <CgArrowUpR className='up-down-icon' />
           </a>
-          <h1>What is summit?</h1>
+          <div className='summit-hero-text-container'>
+            <h1>What is Summit?</h1>
+            <p>
+              Summit is a place to track and see all your stats in and out
+              the gym
+            </p>
+          </div>
           <a href='#summit-hero-2'>
             <CgArrowDownR className='up-down-icon' />
           </a>
@@ -176,7 +182,13 @@ const Login = () => {
           <a href='#summit-hero-1'>
             <CgArrowUpR className='up-down-icon' />
           </a>
-          <h1>How is summit?</h1>
+          <div className='summit-hero-text-container'>
+            <h1>How is summit?</h1>
+            <p>
+              How is it at the top? the view is pretty sweet, join us and
+              reach your summit..
+            </p>
+          </div>
           <a href='#summit-hero-3'>
             <CgArrowDownR className='up-down-icon' />
           </a>
@@ -186,7 +198,14 @@ const Login = () => {
           <a href='#summit-hero-2'>
             <CgArrowUpR className='up-down-icon' />
           </a>
-          <h1>Why is summit?</h1>
+          <div className='summit-hero-text-container'>
+            <h1>Why is summit?</h1>
+            <p>
+              Summit can help you reach your goals, compete with your
+              friends and track your progress over time
+            </p>
+          </div>
+
           <a href='#contact'>
             <CgArrowDownR className='up-down-icon' />
           </a>
@@ -248,6 +267,12 @@ const Login = () => {
               </div>
             </button>
           </form>
+          <a href='#login'>
+            <div className='arrows'>
+              <IoIosArrowUp className='arrow-1' />
+              <IoIosArrowUp className='arrow-2' />
+            </div>
+          </a>
         </section>
       </div>
     </div>

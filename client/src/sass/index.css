@@ -336,27 +336,30 @@ span {
   cursor: pointer;
   color: var(--dark-text2);
 }
+.summit-hero-1 .summit-hero-text-container,
+.summit-hero-2 .summit-hero-text-container,
+.summit-hero-3 .summit-hero-text-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  padding: 1.25rem;
+}
 .summit-hero-1 h1,
 .summit-hero-2 h1,
 .summit-hero-3 h1 {
-  margin: 2rem 0;
+  font-family: var(--font-poppins);
+  background-image: var(--bg-grad-contact);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-size: 300%;
+  animation: gradanim 5s infinite alternate;
+  margin-bottom: 0;
 }
-
-.summit-hero-4 {
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  color: var(--dark-bg-primary);
-}
-.summit-hero-4 .up-down-icon {
-  font-size: 2.5rem;
-  cursor: pointer;
-  color: var(--dark-bg-primary);
-}
-.summit-hero-4 h1 {
-  margin: 2rem 0;
+.summit-hero-1 p,
+.summit-hero-2 p,
+.summit-hero-3 p {
+  font-size: 1rem;
 }
 
 .contact-container {
@@ -454,6 +457,22 @@ span {
 .contact-container .form-container button:hover {
   background: var(--dark-bg-secondary);
   color: var(--dark-text2);
+}
+.contact-container .arrows {
+  position: relative;
+  width: 100vw;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  color: var(--dark-bg-primary);
+  margin-top: 1.5625rem;
+}
+.contact-container .arrows .arrow-1 {
+  font-size: 2rem;
+  position: absolute;
+}
+.contact-container .arrows .arrow-2 {
+  font-size: 4rem;
 }
 .contact-container .submit-message {
   font-size: 1.5rem;
