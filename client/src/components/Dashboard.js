@@ -1,9 +1,4 @@
-import React, { useState, useEffect } from 'react'
-import {
-  getAllExerciseWeightInfo,
-  addSessionWeight
-} from '../api/callerFunctions'
-
+import React from 'react'
 import BarChart from './_charts/BarChart'
 import LineChart from './_charts/LineChart'
 import PieChart from './_charts/PieChart'
@@ -15,51 +10,26 @@ import ScatterChart from './_charts/ScatterChart'
 
 import { motion } from 'framer-motion'
 
+const graphContainerVariants = {
+  hidden: {
+    opacity: 0
+  },
+  visible: {
+    opacity: 1,
+    transition: { duration: 1.5 }
+  }
+}
+
 const Dashboard = () => {
-  // const [weight, setWeight] = useState(0)
-  // const [exerciseInfo, setExerciseInfo] = useState([])
-
-  // useEffect(() => {
-  //   try {
-  //     getAllExerciseWeightInfo().then((data) => {
-  //       setExerciseInfo(data)
-  //     })
-  //   } catch (err) {
-  //     console.log(err)
-  //   }
-  // }, [])
-
-  // console.log(exerciseInfo)
-
-  // const handleWeightSubmit = (e) => {
-  //   e.preventDefault()
-  //   addSessionWeight({
-  //     exercise_name: 'bench press',
-  //     exercise_weight: weight
-  //   })
-  //   console.log('session submit fired. Weight added: ', weight)
-  // }
-
   return (
-    <motion.div
-      className='exercise-group-container'
-      // initial={{ opacity: 0 }}
-      // animate={{ opacity: 1 }}
-      // transition={{ duration: 2 }}
-    >
+    <motion.div className='exercise-group-container'>
       <h1>My Dashboard</h1>
-      {/* <form onSubmit={handleWeightSubmit}>
-        <label>Add weight: </label>
-        <input
-          type='number'
-          placeholder='Enter number...'
-          onChange={(e) => setWeight(e.target.value)}
-        />
-        <button>Add Weight</button>
-      </form>
-      <h2>Weight Added on API: </h2>
-  */}
-      <div className='graph-container'>
+      <motion.div
+        className='graph-container'
+        variants={graphContainerVariants}
+        initial='hidden'
+        animate='visible'
+      >
         <LineChart data={[30, 45, 55, 50, 60, 65, 70, 80]} />
         <BarChart data={[30, 45, 55, 50, 60, 65, 70, 80]} />
         <PieChart />
@@ -68,7 +38,7 @@ const Dashboard = () => {
         <MultiLineChart />
         <DynamicChart />
         <ScatterChart />
-      </div>
+      </motion.div>
     </motion.div>
   )
 }

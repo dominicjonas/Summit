@@ -16,6 +16,15 @@ const Running = () => {
   const handleSubmit = (e) => {
     e.preventDefault()
   }
+  const graphContainerVariants = {
+    hidden: {
+      opacity: 0
+    },
+    visible: {
+      opacity: 1,
+      transition: { duration: 1 }
+    }
+  }
 
   return (
     <div className='exercise-group-container'>
@@ -53,11 +62,16 @@ const Running = () => {
         </Link>
       </div>
       <h2>Running</h2>
-      <div className='graph-container'>
+      <motion.div
+        className='graph-container'
+        variants={graphContainerVariants}
+        initial='hidden'
+        animate='visible'
+      >
         <LineChart />
         <PolarChart />
         <MultiLineChart />
-      </div>
+      </motion.div>
       <form className='weight-input-container' onSubmit={handleSubmit}>
         <label>What is your goal for next session?</label>
         <input
