@@ -1,5 +1,5 @@
-import React from 'react';
-import { Line } from 'react-chartjs-2';
+import React from 'react'
+import { Line } from 'react-chartjs-2'
 // import { makeRandomDataArray } from '../_data/randomData'
 
 const buildData = (dataArr) => {
@@ -11,14 +11,13 @@ const buildData = (dataArr) => {
         data: dataArr,
         fill: false,
         backgroundColor: 'rgb(81, 214, 203)',
-        borderColor: 'rgba(255, 255, 255, 0.2)',
+        borderColor: 'rgba(255, 255, 255, 0.2)'
         // borderColor: 'rgb(24, 247, 228,)',
-      },
-    ],
-  };
-  return data;
-};
-console.log('this is the line chart build data', buildData);
+      }
+    ]
+  }
+  return data
+}
 
 const options = {
   scales: {
@@ -26,20 +25,20 @@ const options = {
       beginAtZero: true,
       ticks: {
         callback: function (value) {
-          return `${value}kg`;
-        },
+          return `${value}kg`
+        }
       },
       grid: {
-        lineWidth: 1,
-      },
-    },
-  },
-};
+        lineWidth: 1
+      }
+    }
+  }
+}
 
 const LineChart = ({ data }) => (
-  <div className="chart">
+  <div className='chart'>
     <Line data={buildData(data)} options={options} height={300} />
   </div>
-);
+)
 
-export default LineChart;
+export default LineChart

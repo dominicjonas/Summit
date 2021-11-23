@@ -1,12 +1,14 @@
-import React, { useState } from 'react'
+import React, { useState, useRef } from 'react'
 import { Link, useHistory } from 'react-router-dom'
 // import { loginUser } from '../api/callerFunctions'
 
 import logo from '../../assets/logo.png'
-import { IoIosArrowDown } from 'react-icons/io'
+import { IoIosArrowDown, IoIosArrowUp } from 'react-icons/io'
 import { AiOutlineHome } from 'react-icons/ai'
 import { CgArrowDownR, CgArrowUpR } from 'react-icons/cg'
+import { RiMessage2Line } from 'react-icons/ri'
 
+import ReCAPTCHA from 'react-google-recaptcha'
 import axios from 'axios'
 
 const Login = () => {
@@ -17,6 +19,8 @@ const Login = () => {
       password: ''
     }
   })
+
+  // * Login
 
   const handleChange = (e) => {
     const formData = {
@@ -49,6 +53,68 @@ const Login = () => {
     } catch (err) {
       console.error('error login in user', err)
     }
+  }
+
+  // * Contact Form
+  const formId = 'ItxqNDGv'
+  const formSparkUrl = `https://submit-form.com/${formId}`
+  const recaptchaKey = '6Ld7yFMdAAAAAK_aVnQB_OyU0qtm2xKCftIC393f'
+  const recaptchaRef = useRef()
+
+  const initialFormState = {
+    email: '',
+    name: '',
+    message: ''
+  }
+
+  const [formState, setFormState] = useState({
+    email: '',
+    name: '',
+    message: ''
+  })
+  const [submitting, setSubmitting] = useState(false)
+  const [message, setMessage] = useState('')
+  const [recaptchaToken, setRecaptchaToken] = useState('')
+
+  const submitForm = async (e) => {
+    e.preventDefault()
+    setSubmitting(true)
+    await postSubmission()
+    setSubmitting(false)
+  }
+
+  const postSubmission = async () => {
+    const payLoad = {
+      ...formState,
+      'g-recaptcha-response': recaptchaToken
+    }
+    try {
+      const result = await axios.post(formSparkUrl, payLoad)
+      console.log(result)
+      setMessage({
+        text: `Message received! We'll be in touch shortly`
+      })
+      setFormState(initialFormState)
+      recaptchaRef.current.reset()
+    } catch (err) {
+      console.log(err)
+      setMessage({
+        text: 'Sorry, there was a problem, please try again'
+      })
+    }
+  }
+
+  const updateFormControl = (e) => {
+    const { id, value } = e.target
+    const formKey = id
+    const updatedFormState = { ...formState }
+    updatedFormState[formKey] = value
+    setFormState(updatedFormState)
+  }
+
+  //! https://www.google.com/u/1/recaptcha/admin/create reset domain name once this is deployed!
+  const updateRecaptchaToken = (token) => {
+    setRecaptchaToken(token)
   }
 
   return (
@@ -100,7 +166,13 @@ const Login = () => {
           <a href='#login'>
             <CgArrowUpR className='up-down-icon' />
           </a>
-          <h1>What is summit?</h1>
+          <div className='summit-hero-text-container'>
+            <h1>What is Summit?</h1>
+            <p>
+              Summit is a place to track and see all your stats in and out
+              the gym
+            </p>
+          </div>
           <a href='#summit-hero-2'>
             <CgArrowDownR className='up-down-icon' />
           </a>
@@ -110,7 +182,13 @@ const Login = () => {
           <a href='#summit-hero-1'>
             <CgArrowUpR className='up-down-icon' />
           </a>
-          <h1>How is summit?</h1>
+          <div className='summit-hero-text-container'>
+            <h1>How is summit?</h1>
+            <p>
+              How is it at the top? the view is pretty sweet, join us and
+              reach your summit..
+            </p>
+          </div>
           <a href='#summit-hero-3'>
             <CgArrowDownR className='up-down-icon' />
           </a>
@@ -120,17 +198,81 @@ const Login = () => {
           <a href='#summit-hero-2'>
             <CgArrowUpR className='up-down-icon' />
           </a>
-          <h1>Why is summit?</h1>
-          <a href='#summit-hero-4'>
+          <div className='summit-hero-text-container'>
+            <h1>Why is summit?</h1>
+            <p>
+              Summit can help you reach your goals, compete with your
+              friends and track your progress over time
+            </p>
+          </div>
+
+          <a href='#contact'>
             <CgArrowDownR className='up-down-icon' />
           </a>
         </section>
 
-        <section id='summit-hero-4' className='summit-hero-4'>
+        {/* CONTACT FORM */}
+
+        <section className='contact-container' id='contact'>
+          <div className='contact-header'>
+            <div className='title'>
+              <RiMessage2Line />
+              <h1>Contact Us</h1>
+            </div>
+            <p>How can we help?</p>
+          </div>
+          {message && <div className='submit-message'>{message.text}</div>}
+
+          <form onSubmit={submitForm} className='form-container'>
+            <div className='form-input-name-container'>
+              <label htmlFor='name'>Name</label>
+              <input
+                onChange={updateFormControl}
+                type='text'
+                id='name'
+                value={formState.name}
+              ></input>
+            </div>
+
+            <div className='form-input-email-container'>
+              <label htmlFor='email'>Email</label>
+              <input
+                onChange={updateFormControl}
+                type='email'
+                id='email'
+                value={formState.email}
+              ></input>
+            </div>
+
+            <div className='form-input-textarea-container'>
+              <label htmlFor='message'>Message</label>
+              <input
+                onChange={updateFormControl}
+                type='text'
+                id='message'
+                value={formState.message}
+              ></input>
+            </div>
+
+            <ReCAPTCHA
+              className='recaptcha'
+              ref={recaptchaRef}
+              sitekey={recaptchaKey}
+              onChange={updateRecaptchaToken}
+            />
+
+            <button>
+              <div className='button' disabled={submitting}>
+                {submitting ? 'Submitting...' : 'Submit'}
+              </div>
+            </button>
+          </form>
           <a href='#login'>
-            <CgArrowUpR className='up-down-icon' />
+            <div className='arrows'>
+              <IoIosArrowUp className='arrow-1' />
+              <IoIosArrowUp className='arrow-2' />
+            </div>
           </a>
-          <h1>Contact us</h1>
         </section>
       </div>
     </div>
