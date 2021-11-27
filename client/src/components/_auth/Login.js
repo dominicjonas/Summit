@@ -58,7 +58,7 @@ const Login = () => {
   // * Contact Form
   const formId = 'ItxqNDGv'
   const formSparkUrl = `https://submit-form.com/${formId}`
-  const recaptchaKey = '6LfyAlUdAAAAAGOUZ8VX0VLhXmO0L7M48yK3Y8IU'
+  const recaptchaKey = '6LeDjWEdAAAAAAOXrLpRn4ornK39ca_sWIhkp18l'
   const recaptchaRef = useRef()
 
   const initialFormState = {
