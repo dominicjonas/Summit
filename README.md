@@ -56,7 +56,9 @@ Jira was used for our workflow management.
 
 ### User Auth
 
-https://user-images.githubusercontent.com/83312425/143770953-fb6aedcc-f924-4460-a7bd-3d8937a49d20.mp4
+https://user-images.githubusercontent.com/83312425/143771010-70844b79-b697-48ae-bf6e-b89f525bd952.mov
+
+
 
 
 
