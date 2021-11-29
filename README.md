@@ -1,7 +1,7 @@
 
 ![logoWhite](https://user-images.githubusercontent.com/83312425/143767599-a6c2b5a2-f7ea-4347-be69-59f13602e026.png)
 
-## Live site: https://summit-exercise-dashboard.netlify.app/login
+## Live site: https://summit-exercise-dashboard.netlify.app
 
 ## Project Brief 
 To design and collaboratively build a full-stack app that consumes our own API (as a team of 2 in 21 days).
@@ -68,13 +68,14 @@ https://user-images.githubusercontent.com/83312425/143848333-31d17287-5794-436a-
 - Getting to grips with Python and Django was a challenge, espeicially given we had little to no experience working with them at the start of the project. 
 
 ## Wins
-- 
+- Despite a lot of challenges and setbacks, we managed to produce an intricate level of connection throughout our app. 
+- Valuable experience gained in larger scale project management.
+- Gathering rich data and using it to drive the experience was our focus from the very beginning. Good communication and planning with our database helped us achieve that.
 
+## Future Features
 
-
-
-
-
+### Social
+- We plan to incorperate social elements into the app. Users can follow others users and dynamic visual representation of the comparison of progress is displayed. 
 
 
 
