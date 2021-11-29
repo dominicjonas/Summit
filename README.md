@@ -53,6 +53,10 @@ Jira was used for our workflow management.
 
 ![jira-workflow](https://user-images.githubusercontent.com/83312425/143769769-2378e579-f456-4324-a789-520f675b06c3.png)
 
+### Colour Palette
+
+![summit-palette](https://user-images.githubusercontent.com/83312425/143857997-cdfcb89c-a659-4e84-807c-28ecc4a58b87.png)
+
 ## Functionality
 
 ### User Auth
@@ -63,9 +67,11 @@ https://user-images.githubusercontent.com/83312425/143771010-70844b79-b697-48ae-
 
 https://user-images.githubusercontent.com/83312425/143848333-31d17287-5794-436a-89d3-51015c796041.mov
 
+
+
 ## Issues
-- Given the time frame to complete the project, we were very ambitious with what we wanted this app to acheieve. Lessons on priority were leanred.
-- Getting to grips with Python and Django was a challenge, espeicially given we had little to no experience working with them at the start of the project. 
+- Given the time frame to complete the project, we were very ambitious with what we wanted this app to achieve. Lessons on priority were learned.
+- Getting to grips with Python and Django was a challenge, especially given we had little to no experience working with them at the start of the project. 
 
 ## Wins
 - Despite a lot of challenges and setbacks, we managed to produce an intricate level of connection throughout our app. 
@@ -75,7 +81,17 @@ https://user-images.githubusercontent.com/83312425/143848333-31d17287-5794-436a-
 ## Future Features
 
 ### Social
-- We plan to incorperate social elements into the app. Users can follow others users and dynamic visual representation of the comparison of progress is displayed. 
+- A focus on the social side of the app will be the next feature to implement. 
+- Public / Private user data
+- Compare and track your stats and progress among your followers.
+- Publish and share progress summits reached across all platforms.  
+
+### Implement D3
+- A deeper and more comprehensive representation of the data recorded for the Cardio section of the app. 
+
+### Focus on Performance and Accessibility 
+- App must be fully accessible for all users.
+- Squeeze every last FPS from the code. 
 
 
 
