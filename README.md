@@ -45,11 +45,11 @@ Iphone Notes.
 
 ### Design 
 
-We used Jira to manage our workflow / ticket system and conducted daily meetings to maintain progress and momentum throughout the project.
+We used Figma for brainstorming, database design, feature planning and UI concepts. 
 
 ![figma-design-brainstorm](https://user-images.githubusercontent.com/83312425/143769751-0ed16783-ef79-429f-a1f0-c00e9e6c8499.png)
 
-Jira was used for our workflow management.
+We used Jira to manage our workflow / ticket system and conducted daily meetings to maintain progress and momentum throughout the project.
 
 ![jira-workflow](https://user-images.githubusercontent.com/83312425/143769769-2378e579-f456-4324-a789-520f675b06c3.png)
 
