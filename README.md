@@ -5,7 +5,7 @@
 
 ## Overview
 This was the fourth project during the Software Engineering Immersive at General Assembley. We aimed to design and collaboratively build a full-stack app that consumes our own API (as a team of 2 in 21 days).
-  ### Team: Dominic Jonas and Clem 
+  ### Team: https://github.com/dominicjonas & https://github.com/ClemSK
   ### Timespan: 21 days
   
   
