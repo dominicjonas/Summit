@@ -78,6 +78,7 @@ https://user-images.githubusercontent.com/83312425/143848333-31d17287-5794-436a-
 - Getting to grips with Python and Django was a challenge, especially given we had little to no experience working with them at the start of the project. 
 
 ## Wins
+-  I put a lot of work into refining the UI of this project and getting a consistent theme throughout the styling. The functional and variable driven approach to the SASS files help achieve this.  
 - Despite a lot of challenges and setbacks, we managed to produce an intricate level of connection throughout our app. 
 - Valuable experience gained in larger scale project management.
 - Gathering rich data and using it to drive the experience was our focus from the very beginning. Good communication and planning with our database helped us achieve that.
@@ -96,6 +97,7 @@ https://user-images.githubusercontent.com/83312425/143848333-31d17287-5794-436a-
 ### Focus on Performance and Accessibility 
 - App must be fully accessible for all users.
 - Squeeze every last FPS from the code. 
+
 
 
 
