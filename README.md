@@ -41,15 +41,15 @@ Summit is an app for users to track , display and share their exericse stats. Af
 ## Plan / Workflow
 
 ### Idea
-The initial idea for Summit came to me in the gym, while entering my current gym stats into the Notes app on my Iphone. I wanted to create a full-stack app that would keep track of my progress of each exercise and display that data in a visually impressive way. 
+The initial idea for Summit came to me in the gym, while entering my current gym stats into the Notes app on my iPhone. I wanted to create a full-stack app that would keep track of my progress of each exercise and display that data in a visually impressive way. 
 
-Iphone Notes.
+iPhone Notes.
 
 <img width="826" alt="Screenshot 2021-11-28 at 13 19 00" src="https://user-images.githubusercontent.com/83312425/143769533-8f0e4bcc-6264-47c4-a044-b760b9837781.png" align='center'>
 
-### Design 
+### Design & Planning
 
-We used Figma for brainstorming, database design, feature planning and UI concepts. 
+Figma was used for the initial brainstorming, database design, feature planning and UI concepts. Daily meetings were held to talk through the steps needed to reach our MVP and define a clear user-story. 
 
 ![figma-design-brainstorm](https://user-images.githubusercontent.com/83312425/143769751-0ed16783-ef79-429f-a1f0-c00e9e6c8499.png)
 
@@ -86,7 +86,7 @@ https://user-images.githubusercontent.com/83312425/143848333-31d17287-5794-436a-
 
 ### Social
 - A focus on the social side of the app will be the next feature to implement. 
-- Public / Private user data
+- Public / Private user data.
 - Compare and track your stats and progress among your followers.
 - Publish and share progress summits reached across all platforms.  
 
