@@ -23,16 +23,39 @@ This was the fourth project during the Software Engineering Immersive at General
 - HTML5
 - CSS / SASS
 - Webpack
-- Chart.js / React-chartjs-2
-- Framer Motion
-- React-icons
-- Google Recaptcha
-- Formspark
+
 ### Design
 - Figma
 ### Version Control
 - Git
 - Github
+
+## Technologies used
+### Backend
+- [Python](https://www.python.org/)
+- [Django](https://docs.djangoproject.com/en/4.0/)
+- [SQLite](https://www.sqlite.org/docs.html)
+- [PostgreSQL](https://www.postgresql.org/docs/)
+- [Heroku](https://devcenter.heroku.com/)
+- [Postman](https://www.postman.com/api-documentation-tool/)
+### Frontend
+- [HTML](https://developer.mozilla.org/en-US/docs/Web/HTML)
+- [CSS](https://developer.mozilla.org/en-US/docs/Glossary/CSS)
+- [SASS](https://sass-lang.com/documentation)
+- [JavaScript](https://developer.mozilla.org/en-US/docs/Web/JavaScript)
+- [React.js](https://reactjs.org/docs/getting-started.html)
+- [Webpack](https://webpack.js.org/)
+- [Chart.js](https://www.chartjs.org/)
+- [Google Recaptcha](https://www.google.com/recaptcha/about/)
+- [Formspark](https://formspark.io/)
+- [Framer Motion](https://www.framer.com/docs/)
+- [FontAwesome](https://fontawesome.com/)
+- [React Icons](https://react-icons.github.io/react-icons/)
+### Design
+- [Figma](https://www.figma.com/)
+### Version Control
+- [Git](https://git-scm.com/doc)
+- [GitHub](https://docs.github.com/en)
 
 # Summit
 
