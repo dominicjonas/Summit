@@ -93,7 +93,7 @@ https://user-images.githubusercontent.com/83312425/143848333-31d17287-5794-436a-
 - Publish and share progress summits reached across all platforms.  
 
 ### D3
-- Utilize D3 to produce a deeper and more comprehensive representation of the data recorded for the Cardio section of the app. 
+- Utilize [D3](https://d3js.org/) to produce a deeper and more comprehensive representation of the data recorded for the Cardio section of the app. 
 
 ### Focus on Performance and Accessibility 
 - App must be fully accessible for all users.
