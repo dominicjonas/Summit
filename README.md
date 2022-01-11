@@ -1,11 +1,11 @@
 
 ![logoWhite](https://user-images.githubusercontent.com/83312425/143767599-a6c2b5a2-f7ea-4347-be69-59f13602e026.png)
 
-## Live site: https://summit-exercise-dashboard.netlify.app
+## [Live site](https://summit-exercise-dashboard.netlify.app)
 
 ## Overview
 This was the fourth project during the Software Engineering Immersive at General Assembley. We aimed to design and collaboratively build a full-stack app that consumes our own API (as a team of 2 in 21 days).
-  ### Team: https://github.com/dominicjonas & https://github.com/ClemSK
+  ### Team: [Dominic Jonas](https://github.com/dominicjonas) & [Clement Seconde-Kynnersley](https://github.com/ClemSK)
   ### Timespan: 21 days
   
   
